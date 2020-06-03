@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fancy.cancer.impl.mapper.EndometrialCancerFieldMapper">
+  <resultMap id="BaseResultMap" type="com.fancy.cancer.api.po.EndometrialCancerField">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="clinical_information" jdbcType="VARCHAR" property="clinicalInformation" />
+    <result column="hospital_costs" jdbcType="VARCHAR" property="hospitalCosts" />
+    <result column="history_information" jdbcType="VARCHAR" property="historyInformation" />
+    <result column="physical_check" jdbcType="VARCHAR" property="physicalCheck" />
+    <result column="laboratory_examination" jdbcType="VARCHAR" property="laboratoryExamination" />
+    <result column="imaging_examination" jdbcType="VARCHAR" property="imagingExamination" />
+    <result column="operation_situation" jdbcType="VARCHAR" property="operationSituation" />
+    <result column="pathological" jdbcType="VARCHAR" property="pathological" />
+    <result column="postoperative_treatment" jdbcType="VARCHAR" property="postoperativeTreatment" />
+    <result column="follow_up" jdbcType="VARCHAR" property="followUp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, clinical_information, hospital_costs, history_information, physical_check, laboratory_examination, 
+    imaging_examination, operation_situation, pathological, postoperative_treatment, 
+    follow_up
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from endometrial_cancer_field
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from endometrial_cancer_field
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fancy.cancer.api.po.EndometrialCancerField">
+    insert into endometrial_cancer_field (id, clinical_information, hospital_costs, 
+      history_information, physical_check, laboratory_examination, 
+      imaging_examination, operation_situation, 
+      pathological, postoperative_treatment, follow_up
+      )
+    values (#{id,jdbcType=INTEGER}, #{clinicalInformation,jdbcType=VARCHAR}, #{hospitalCosts,jdbcType=VARCHAR}, 
+      #{historyInformation,jdbcType=VARCHAR}, #{physicalCheck,jdbcType=VARCHAR}, #{laboratoryExamination,jdbcType=VARCHAR}, 
+      #{imagingExamination,jdbcType=VARCHAR}, #{operationSituation,jdbcType=VARCHAR}, 
+      #{pathological,jdbcType=VARCHAR}, #{postoperativeTreatment,jdbcType=VARCHAR}, #{followUp,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fancy.cancer.api.po.EndometrialCancerField">
+    insert into endometrial_cancer_field
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="clinicalInformation != null">
+        clinical_information,
+      </if>
+      <if test="hospitalCosts != null">
+        hospital_costs,
+      </if>
+      <if test="historyInformation != null">
+        history_information,
+      </if>
+      <if test="physicalCheck != null">
+        physical_check,
+      </if>
+      <if test="laboratoryExamination != null">
+        laboratory_examination,
+      </if>
+      <if test="imagingExamination != null">
+        imaging_examination,
+      </if>
+      <if test="operationSituation != null">
+        operation_situation,
+      </if>
+      <if test="pathological != null">
+        pathological,
+      </if>
+      <if test="postoperativeTreatment != null">
+        postoperative_treatment,
+      </if>
+      <if test="followUp != null">
+        follow_up,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="clinicalInformation != null">
+        #{clinicalInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalCosts != null">
+        #{hospitalCosts,jdbcType=VARCHAR},
+      </if>
+      <if test="historyInformation != null">
+        #{historyInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="physicalCheck != null">
+        #{physicalCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="laboratoryExamination != null">
+        #{laboratoryExamination,jdbcType=VARCHAR},
+      </if>
+      <if test="imagingExamination != null">
+        #{imagingExamination,jdbcType=VARCHAR},
+      </if>
+      <if test="operationSituation != null">
+        #{operationSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="pathological != null">
+        #{pathological,jdbcType=VARCHAR},
+      </if>
+      <if test="postoperativeTreatment != null">
+        #{postoperativeTreatment,jdbcType=VARCHAR},
+      </if>
+      <if test="followUp != null">
+        #{followUp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fancy.cancer.api.po.EndometrialCancerField">
+    update endometrial_cancer_field
+    <set>
+      <if test="clinicalInformation != null">
+        clinical_information = #{clinicalInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalCosts != null">
+        hospital_costs = #{hospitalCosts,jdbcType=VARCHAR},
+      </if>
+      <if test="historyInformation != null">
+        history_information = #{historyInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="physicalCheck != null">
+        physical_check = #{physicalCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="laboratoryExamination != null">
+        laboratory_examination = #{laboratoryExamination,jdbcType=VARCHAR},
+      </if>
+      <if test="imagingExamination != null">
+        imaging_examination = #{imagingExamination,jdbcType=VARCHAR},
+      </if>
+      <if test="operationSituation != null">
+        operation_situation = #{operationSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="pathological != null">
+        pathological = #{pathological,jdbcType=VARCHAR},
+      </if>
+      <if test="postoperativeTreatment != null">
+        postoperative_treatment = #{postoperativeTreatment,jdbcType=VARCHAR},
+      </if>
+      <if test="followUp != null">
+        follow_up = #{followUp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fancy.cancer.api.po.EndometrialCancerField">
+    update endometrial_cancer_field
+    set clinical_information = #{clinicalInformation,jdbcType=VARCHAR},
+      hospital_costs = #{hospitalCosts,jdbcType=VARCHAR},
+      history_information = #{historyInformation,jdbcType=VARCHAR},
+      physical_check = #{physicalCheck,jdbcType=VARCHAR},
+      laboratory_examination = #{laboratoryExamination,jdbcType=VARCHAR},
+      imaging_examination = #{imagingExamination,jdbcType=VARCHAR},
+      operation_situation = #{operationSituation,jdbcType=VARCHAR},
+      pathological = #{pathological,jdbcType=VARCHAR},
+      postoperative_treatment = #{postoperativeTreatment,jdbcType=VARCHAR},
+      follow_up = #{followUp,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from endometrial_cancer_field
+  </select>
+</mapper>

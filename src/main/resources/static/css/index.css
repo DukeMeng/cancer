@@ -1,0 +1,21 @@
+.layui-logo img {
+    width: 60px;
+    height: 60px;
+}
+.layui-logo span{
+    color: #fff;
+}
+
+#picgetID{
+    position: absolute;
+    left: 620px;
+    top: 42px;
+    width: 640px;
+}
+.clearfixed:after{
+    display:block;
+    clear:both;
+    content:"";
+    visibility:hidden;
+    height:0;
+}

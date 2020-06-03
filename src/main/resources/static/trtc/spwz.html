@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>视频问诊</title>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body style="height:100vh">
+<img src="img/wxiso.jpg" style="width: 100%;height: 100%;position: absolute;left: 0px;top: 0px">
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $("#iosimageID").hide();
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if(isiOS){
+        if (u.indexOf("Safari") > -1) {
+        }else{
+            alert(1111111)
+           ///////提示打开safri图片
+            $("#iosimageID").show();
+        }
+    }
+</script>
+</body>
+</html>

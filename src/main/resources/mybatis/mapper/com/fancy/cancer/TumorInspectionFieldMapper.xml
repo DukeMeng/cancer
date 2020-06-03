@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fancy.cancer.impl.mapper.TumorInspectionFieldMapper">
+  <resultMap id="BaseResultMap" type="com.fancy.cancer.api.po.TumorInspectionField">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="serial_number" jdbcType="VARCHAR" property="serialNumber" />
+    <result column="inspection_items" jdbcType="VARCHAR" property="inspectionItems" />
+    <result column="check_project" jdbcType="VARCHAR" property="checkProject" />
+    <result column="specimen_type" jdbcType="VARCHAR" property="specimenType" />
+    <result column="specific_field" jdbcType="VARCHAR" property="specificField" />
+    <result column="field_abbreviations" jdbcType="VARCHAR" property="fieldAbbreviations" />
+    <result column="orresponding_field" jdbcType="VARCHAR" property="orrespondingField" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, serial_number, inspection_items, check_project, specimen_type, specific_field, 
+    field_abbreviations, orresponding_field
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tumor_inspection_field
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tumor_inspection_field
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fancy.cancer.api.po.TumorInspectionField">
+    insert into tumor_inspection_field (id, serial_number, inspection_items, 
+      check_project, specimen_type, specific_field, 
+      field_abbreviations, orresponding_field)
+    values (#{id,jdbcType=INTEGER}, #{serialNumber,jdbcType=VARCHAR}, #{inspectionItems,jdbcType=VARCHAR}, 
+      #{checkProject,jdbcType=VARCHAR}, #{specimenType,jdbcType=VARCHAR}, #{specificField,jdbcType=VARCHAR}, 
+      #{fieldAbbreviations,jdbcType=VARCHAR}, #{orrespondingField,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fancy.cancer.api.po.TumorInspectionField">
+    insert into tumor_inspection_field
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="serialNumber != null">
+        serial_number,
+      </if>
+      <if test="inspectionItems != null">
+        inspection_items,
+      </if>
+      <if test="checkProject != null">
+        check_project,
+      </if>
+      <if test="specimenType != null">
+        specimen_type,
+      </if>
+      <if test="specificField != null">
+        specific_field,
+      </if>
+      <if test="fieldAbbreviations != null">
+        field_abbreviations,
+      </if>
+      <if test="orrespondingField != null">
+        orresponding_field,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="serialNumber != null">
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectionItems != null">
+        #{inspectionItems,jdbcType=VARCHAR},
+      </if>
+      <if test="checkProject != null">
+        #{checkProject,jdbcType=VARCHAR},
+      </if>
+      <if test="specimenType != null">
+        #{specimenType,jdbcType=VARCHAR},
+      </if>
+      <if test="specificField != null">
+        #{specificField,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldAbbreviations != null">
+        #{fieldAbbreviations,jdbcType=VARCHAR},
+      </if>
+      <if test="orrespondingField != null">
+        #{orrespondingField,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fancy.cancer.api.po.TumorInspectionField">
+    update tumor_inspection_field
+    <set>
+      <if test="serialNumber != null">
+        serial_number = #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectionItems != null">
+        inspection_items = #{inspectionItems,jdbcType=VARCHAR},
+      </if>
+      <if test="checkProject != null">
+        check_project = #{checkProject,jdbcType=VARCHAR},
+      </if>
+      <if test="specimenType != null">
+        specimen_type = #{specimenType,jdbcType=VARCHAR},
+      </if>
+      <if test="specificField != null">
+        specific_field = #{specificField,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldAbbreviations != null">
+        field_abbreviations = #{fieldAbbreviations,jdbcType=VARCHAR},
+      </if>
+      <if test="orrespondingField != null">
+        orresponding_field = #{orrespondingField,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fancy.cancer.api.po.TumorInspectionField">
+    update tumor_inspection_field
+    set serial_number = #{serialNumber,jdbcType=VARCHAR},
+      inspection_items = #{inspectionItems,jdbcType=VARCHAR},
+      check_project = #{checkProject,jdbcType=VARCHAR},
+      specimen_type = #{specimenType,jdbcType=VARCHAR},
+      specific_field = #{specificField,jdbcType=VARCHAR},
+      field_abbreviations = #{fieldAbbreviations,jdbcType=VARCHAR},
+      orresponding_field = #{orrespondingField,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tumor_inspection_field
+  </select>
+</mapper>

@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="@{/}"/>
+    <meta charset="UTF-8">
+    <title>癌患者信息添加页面</title>
+    <link rel="stylesheet" href="layui245/css/layui.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <style>
+        ._li {
+            float: left;
+            width: 50%;
+            margin-top: 6px;
+        }
+
+        .layui-form-label {
+            width: 30%;
+        }
+
+        .layui-input-inline {
+            width: 55%;
+        }
+
+        .clearfixed:after {
+            display: block;
+            clear: both;
+            content: "";
+            visibility: hidden;
+            height: 0;
+        }
+
+        .layui-input-block {
+            margin-top: 30px;
+            margin-left: 46%;
+        }
+    </style>
+</head>
+<style>
+    ._li {
+        width: 24%;
+        display:inline-block;
+        margin-top: 6px;
+    }
+
+    ._li label {
+        width: 33%;
+        float: left;
+    }
+
+    ._li .layui-input-inline {
+        float: left;
+        width: 51%;
+    }
+
+    .select-info {
+        font-size: 16px;
+        padding: 6px 0;
+        border-bottom: 1px solid #000;
+        margin-bottom: 6px;
+    }
+    .clearfixed:after{
+        display:block;
+        clear:both;
+        content:"";
+        visibility:hidden;
+        height:0;
+    }
+
+</style>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="~{common/top::topbar}"></div>
+    <div th:replace="~{common/bar::menu(activeModel='carcinoma')}"></div>
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <form class="layui-form" id="subForm" method="post" th:action="@{/summary/increaseInfo}">
+                <div class="layui-form-item">
+                    <div class="layui-inline clearfixed">
+                        <input name="cancerType" class="layui-input" type="hidden" th:value="${cancerType}"
+                               lay-verify="required"/>
+                        //分类
+                        <div class="select-info">个人信息</div>
+                        <li class="_li clearfixed">
+                            <label class="layui-form-label">编号</label>
+                            <div class="layui-input-inline">
+                                <input name="number" class="layui-input" type="text"/>
+                                <!--必填：lay-verify="required"-->
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">住院号</label>
+                            <div class="layui-input-inline">
+                                <input name="admissionNumber" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">姓名</label>
+                            <div class="layui-input-inline">
+                                <input name="name" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+
+                        <li class="_li clearfixed">
+                            <label class="layui-form-label">出生日期</label>
+                            <div class="layui-input-inline">
+                                <input name="birthday" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">家庭住址</label>
+                            <div class="layui-input-inline">
+                                <input name="contactAddress" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li clearfixed">
+                            <label class="layui-form-label">年龄</label>
+                            <div class="layui-input-inline">
+                                <input name="age" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">身高</label>
+                            <div class="layui-input-inline">
+                                <input name="height" class="layui-input" type="text"/>
+                            </div>
+
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">体重</label>
+                            <div class="layui-input-inline">
+                                <input name="weight" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">身份号码</label>
+                            <div class="layui-input-inline">
+                                <input name="idNumber" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">职业</label>
+                            <div class="layui-input-inline">
+                                <input name="professional" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">亲属</label>
+                            <div class="layui-input-inline">
+                                <input name="relatives" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">家庭电话</label>
+                            <div class="layui-input-inline">
+                                <input name="homePhone" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">家庭电话</label>
+                            <div class="layui-input-inline">
+                                <input name="homePhone" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">联系人1</label>
+                            <div class="layui-input-inline">
+                                <input name="contact" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">与病人关系</label>
+                            <div class="layui-input-inline">
+                                <input name="relation" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">联系电话1</label>
+                            <div class="layui-input-inline">
+                                <input name="contactNumber" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">联系人身份证号</label>
+                            <div class="layui-input-inline">
+                                <input name="contactId" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">联系人2身份证号</label>
+                            <div class="layui-input-inline">
+                                <input name="contactIdTwo" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li clearfixed">
+                            <label class="layui-form-label">联系电话2</label>
+                            <div class="layui-input-inline">
+                                <input name="contactTwo" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <div class="select-info">临床信息</div>
+                        <li class="_li">
+                            <label class="layui-form-label">其他联系方式</label>
+                            <div class="layui-input-inline">
+                                <input name="contactNumberTwo" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">入院日期</label>
+                            <div class="layui-input-inline">
+                                <input name="admissionTime" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">出院日期</label>
+                            <div class="layui-input-inline">
+                                <input name="dischargeDate" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">住院天数</label>
+                            <div class="layui-input-inline">
+                                <input name="hospitalizationDays" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">入院病房</label>
+                            <div class="layui-input-inline">
+                                <input name="inWard" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">出院科室</label>
+                            <div class="layui-input-inline">
+                                <input name="hospitalDepartments" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">出院病区</label>
+                            <div class="layui-input-inline">
+                                <input name="outWard" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">分期</label>
+                            <div class="layui-input-inline">
+                                <input name="installment" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">家族史</label>
+                            <div class="layui-input-inline">
+                                <input name="familyHistory" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CA125</label>
+                            <div class="layui-input-inline">
+                                <input name="ca125" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">初潮</label>
+                            <div class="layui-input-inline">
+                                <input name="menarcheAge" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">经期</label>
+                            <div class="layui-input-inline">
+                                <input name="menstrualPeriod" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">周期</label>
+                            <div class="layui-input-inline">
+                                <input name="cycle" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">LMP</label>
+                            <div class="layui-input-inline">
+                                <input name="lmp" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">绝经年龄</label>
+                            <div class="layui-input-inline">
+                                <input name="menopausalAge" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">初婚年龄</label>
+                            <div class="layui-input-inline">
+                                <input name="firstMarriage" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">婚次</label>
+                            <div class="layui-input-inline">
+                                <input name="weddingTime" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">分娩次数</label>
+                            <div class="layui-input-inline">
+                                <input name="productionNumber" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">流产次数</label>
+                            <div class="layui-input-inline">
+                                <input name="abortionNumber" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <div class="select-info">手术信息</div>
+                            <label class="layui-form-label">手术日期</label>
+                            <div class="layui-input-inline">
+                                <input name="surgeryDate" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">手术医生</label>
+                            <div class="layui-input-inline">
+                                <input name="surgeon" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">手术次数</label>
+                            <div class="layui-input-inline">
+                                <input name="operationFrequency" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">手术用时（分钟）</label>
+                            <div class="layui-input-inline">
+                                <input name="operationTakes" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">病理号</label>
+                            <div class="layui-input-inline">
+                                <input name="pathology" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">类型</label>
+                            <div class="layui-input-inline">
+                                <input name="type" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">分化</label>
+                            <div class="layui-input-inline">
+                                <input name="differentiation" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">切除面积</label>
+                            <div class="layui-input-inline">
+                                <input name="tumorArea" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">侵及范围</label>
+                            <div class="layui-input-inline">
+                                <input name="muscularisInfringement" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <div class="select-info">淋巴结核</div>
+                        <li class="_li">
+                            <label class="layui-form-label">左右宫旁</label>
+                            <div class="layui-input-inline">
+                                <input name="parasymalTissue" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左盆腔淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="leftPelvic" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右盆腔淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="rightPelvic" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左闭孔淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="leftObturator" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右闭孔淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="rightObturator" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左髂总淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="leftIliac" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右髂总淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="rightIliac" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左髂血管淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="leftBloodVessels" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右髂血管淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="rightBloodVessels" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">腹主动脉淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="aortaAbdominalis" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">大网膜</label>
+                            <div class="layui-input-inline">
+                                <input name="greaterOmentumTissue" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">宫颈</label>
+                            <div class="layui-input-inline">
+                                <input name="cervicitis" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <div class="select-info">llllllll灵笼</div>
+                        <li class="_li">
+                            <label class="layui-form-label">子宫肌瘤</label>
+                            <div class="layui-input-inline">
+                                <input name="uterineFibroids" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <div class="select-info">llllllll灵笼</div>
+                        <li class="_li">
+                            <label class="layui-form-label">子宫内膜</label>
+                            <div class="layui-input-inline">
+                                <input name="endometrium" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">卵巢</label>
+                            <div class="layui-input-inline">
+                                <input name="ovary" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">阑尾</label>
+                            <div class="layui-input-inline">
+                                <input name="appendix" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">ER</label>
+                            <div class="layui-input-inline">
+                                <input name="er" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">PR</label>
+                            <div class="layui-input-inline">
+                                <input name="pr" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">P53</label>
+                            <div class="layui-input-inline">
+                                <input name="p53" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">Ki67阳性率</label>
+                            <div class="layui-input-inline">
+                                <input name="ki67" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CA125</label>
+                            <div class="layui-input-inline">
+                                <input name="ca125One" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">WT-1</label>
+                            <div class="layui-input-inline">
+                                <input name="wt1" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">clinic_diag_str</label>
+                            <div class="layui-input-inline">
+                                <input name="clinicDiagStr" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <div class="select-info">费用</div>
+                        <li class="_li">
+                            <label class="layui-form-label">床位费</label>
+                            <div class="layui-input-inline">
+                                <input name="bunkFee" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">诊疗费</label>
+                            <div class="layui-input-inline">
+                                <input name="consultationFee" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">检查费</label>
+                            <div class="layui-input-inline">
+                                <input name="inspectionFee" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">治疗费</label>
+                            <div class="layui-input-inline">
+                                <input name="treatmentFee" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">化验费</label>
+                            <div class="layui-input-inline">
+                                <input name="assayFee" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">放射费</label>
+                            <div class="layui-input-inline">
+                                <input name="emissionFee" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">手术费</label>
+                            <div class="layui-input-inline">
+                                <input name="operationFee" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">麻醉费</label>
+                            <div class="layui-input-inline">
+                                <input name="anesthesiaFee" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">护理费</label>
+                            <div class="layui-input-inline">
+                                <input name="nursingFee" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">输血费</label>
+                            <div class="layui-input-inline">
+                                <input name="transfusionFee" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">西药费</label>
+                            <div class="layui-input-inline">
+                                <input name="westernMedicineFee" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">中药费</label>
+                            <div class="layui-input-inline">
+                                <input name="tcmFee" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">总费用</label>
+                            <div class="layui-input-inline">
+                                <input name="totalCost" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <div class="select-info">随访信息</div>
+                        <li class="_li">
+                            <label class="layui-form-label">2013.11随访</label>
+                            <div class="layui-input-inline">
+                                <input name="record201311" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">存活</label>
+                            <div class="layui-input-inline">
+                                <input name="survivalTwo" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+
+                        <li class="_li">
+                            <label class="layui-form-label">出院诊断</label>
+                            <div class="layui-input-inline">
+                                <input name="hospitalDiagnosis" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">其他诊断</label>
+                            <div class="layui-input-inline">
+                                <input name="elseDiagnosis" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">其他</label>
+                            <div class="layui-input-inline">
+                                <input name="elseStr" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">主诉</label>
+                            <div class="layui-input-inline">
+                                <input name="principleAction" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">手术方式</label>
+                            <div class="layui-input-inline">
+                                <input name="operationMethod" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">病理诊断</label>
+                            <div class="layui-input-inline">
+                                <input name="pathologicalDiagnosis" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">其他</label>
+                            <div class="layui-input-inline">
+                                <input name="other" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术后放疗</label>
+                            <div class="layui-input-inline">
+                                <input name="postoperationRadiotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术后化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="postoperativeChemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">化疗方案</label>
+                            <div class="layui-input-inline">
+                                <input name="chemotherapyRegimens" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">化疗疗程</label>
+                            <div class="layui-input-inline">
+                                <input name="chemotherapyRegimen" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第一疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="firChemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访计划</label>
+                            <div class="layui-input-inline">
+                                <input name="followupPlan" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访日期</label>
+                            <div class="layui-input-inline">
+                                <input name="followupTime" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访内容(生育状况）</label>
+                            <div class="layui-input-inline">
+                                <input name="followupContent" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访结果</label>
+                            <div class="layui-input-inline">
+                                <input name="followupEnding" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">转移部位</label>
+                            <div class="layui-input-inline">
+                                <input name="transfer" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">存活</label>
+                            <div class="layui-input-inline">
+                                <input name="survival" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">死亡时间</label>
+                            <div class="layui-input-inline">
+                                <input name="deathTime" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">死亡原因</label>
+                            <div class="layui-input-inline">
+                                <input name="deathCause" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">死亡时间</label>
+                            <div class="layui-input-inline">
+                                <input name="deathTimeTwo" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">原因</label>
+                            <div class="layui-input-inline">
+                                <input name="deathCauseTwo" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">2014.12随访</label>
+                            <div class="layui-input-inline">
+                                <input name="record201412" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">存活</label>
+                            <div class="layui-input-inline">
+                                <input name="survivalThr" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访时间</label>
+                            <div class="layui-input-inline">
+                                <input name="followupTimeThr" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">死亡时间</label>
+                            <div class="layui-input-inline">
+                                <input name="deathTimeThr" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">死亡原因</label>
+                            <div class="layui-input-inline">
+                                <input name="deathCauseThr" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">是否本埠</label>
+                            <div class="layui-input-inline">
+                                <input name="whetherLocal" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">合并症</label>
+                            <div class="layui-input-inline">
+                                <input name="complications" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">病理类型</label>
+                            <div class="layui-input-inline">
+                                <input name="pathologicTypes" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">触血</label>
+                            <div class="layui-input-inline">
+                                <input name="touchBlood" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">初产年龄</label>
+                            <div class="layui-input-inline">
+                                <input name="brady" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术后住院天数</label>
+                            <div class="layui-input-inline">
+                                <input name="surgeryStayDays" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">疑难</label>
+                            <div class="layui-input-inline">
+                                <input name="whetherDifficultCase" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">危重</label>
+                            <div class="layui-input-inline">
+                                <input name="whetherCritical" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CIN</label>
+                            <div class="layui-input-inline">
+                                <input name="cin" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CK5/6</label>
+                            <div class="layui-input-inline">
+                                <input name="ck56" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CEA</label>
+                            <div class="layui-input-inline">
+                                <input name="cea" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">P16</label>
+                            <div class="layui-input-inline">
+                                <input name="p16" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">P63</label>
+                            <div class="layui-input-inline">
+                                <input name="p63" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">SCC</label>
+                            <div class="layui-input-inline">
+                                <input name="scc;" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">HPV</label>
+                            <div class="layui-input-inline">
+                                <input name="hpv" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">TCT</label>
+                            <div class="layui-input-inline">
+                                <input name="tct" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CK</label>
+                            <div class="layui-input-inline">
+                                <input name="ck" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CK7</label>
+                            <div class="layui-input-inline">
+                                <input name="ck7" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">脉管</label>
+                            <div class="layui-input-inline">
+                                <input name="withinVascular" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">淋巴管</label>
+                            <div class="layui-input-inline">
+                                <input name="lymphatic" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">阴道壁断端</label>
+                            <div class="layui-input-inline">
+                                <input name="vaginalStump" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左腹股沟淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="leftGroin" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右腹股沟淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="rightGroin" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">子宫内膜</label>
+                            <div class="layui-input-inline">
+                                <input name="endometrial" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">子宫肌腺</label>
+                            <div class="layui-input-inline">
+                                <input name="uterineMuscleGland" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">子宫</label>
+                            <div class="layui-input-inline">
+                                <input name="uterus" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">输卵管</label>
+                            <div class="layui-input-inline">
+                                <input name="fallopianTubes" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">是否存活</label>
+                            <div class="layui-input-inline">
+                                <input name="death" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">当前时间</label>
+                            <div class="layui-input-inline">
+                                <input name="currentTime" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">生存时间</label>
+                            <div class="layui-input-inline">
+                                <input name="lifeTime" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访时间</label>
+                            <div class="layui-input-inline">
+                                <input name="followupTimeTwo" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">家庭住址</label>
+                            <div class="layui-input-inline">
+                                <input name="address" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">入院主要诊断</label>
+                            <div class="layui-input-inline">
+                                <input name="admittingDiagnosis" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">病理诊断</label>
+                            <div class="layui-input-inline">
+                                <input name="pathologicResult" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">结局</label>
+                            <div class="layui-input-inline">
+                                <input name="ending" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术前化疗方案</label>
+                            <div class="layui-input-inline">
+                                <input name="preoperativeChemotherapyRegimen" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">其他</label>
+                            <div class="layui-input-inline">
+                                <input name="elses" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">其他</label>
+                            <div class="layui-input-inline">
+                                <input name="others" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">入出符合</label>
+                            <div class="layui-input-inline">
+                                <input name="compliance" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术前后符合</label>
+                            <div class="layui-input-inline">
+                                <input name="postoperativeConformity" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">临床主要诊断和病理符合</label>
+                            <div class="layui-input-inline">
+                                <input name="clinicopathologicCoincidence" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">病案质量</label>
+                            <div class="layui-input-inline">
+                                <input name="medicalRecordQuality" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+
+                        <li class="_li">
+                            <label class="layui-form-label">术后化疗方案</label>
+                            <div class="layui-input-inline">
+                                <input name="postoperativeChemotherapyRegimen" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第二疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="twoChemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第三疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="thrChemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第四疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="fouChemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第五疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="fivChemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第六疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="sixChemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">其他</label>
+                            <div class="layui-input-inline">
+                                <input name="rest" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">放疗</label>
+                            <div class="layui-input-inline">
+                                <input name="radiotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发时间</label>
+                            <div class="layui-input-inline">
+                                <input name="relapseTime" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">累腺</label>
+                            <div class="layui-input-inline">
+                                <input name="tiredGland" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">存活死亡</label>
+                            <div class="layui-input-inline">
+                                <input name="whetherDeath" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">定期复查</label>
+                            <div class="layui-input-inline">
+                                <input name="regularReview" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">有无复发</label>
+                            <div class="layui-input-inline">
+                                <input name="recurrence" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发部位</label>
+                            <div class="layui-input-inline">
+                                <input name="recurrenceParts" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发治疗</label>
+                            <div class="layui-input-inline">
+                                <input name="recurrenceTreatment" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">标本编码</label>
+                            <div class="layui-input-inline">
+                                <input name="specimenNumber" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">其他联系方式</label>
+                            <div class="layui-input-inline">
+                                <input name="contactNumberThr" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">出院情况</label>
+                            <div class="layui-input-inline">
+                                <input name="dischargeStatus" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">婚史（初1，未0，再2）</label>
+                            <div class="layui-input-inline">
+                                <input name="marriageHistory" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">妊娠次数</label>
+                            <div class="layui-input-inline">
+                                <input name="pregnancies" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">生育情况</label>
+                            <div class="layui-input-inline">
+                                <input name="fertilityCircumstance" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">孕产史</label>
+                            <div class="layui-input-inline">
+                                <input name="pregnancyHistory" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">先行妊娠</label>
+                            <div class="layui-input-inline">
+                                <input name="firstPregnancy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">HCG</label>
+                            <div class="layui-input-inline">
+                                <input name="hcg" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">妇科B超</label>
+                            <div class="layui-input-inline">
+                                <input name="gynecologicUltrasonography" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">彩超</label>
+                            <div class="layui-input-inline">
+                                <input name="colorUltrasound" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">胸部拍片或CT</label>
+                            <div class="layui-input-inline">
+                                <input name="ct" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">MRI</label>
+                            <div class="layui-input-inline">
+                                <input name="mri" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">先前化疗方案</label>
+                            <div class="layui-input-inline">
+                                <input name="priorChemotherapyRegimen" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">化疗次数</label>
+                            <div class="layui-input-inline">
+                                <input name="chemotherapyNumber" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">HCG2</label>
+                            <div class="layui-input-inline">
+                                <input name="hcg2" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">HPL</label>
+                            <div class="layui-input-inline">
+                                <input name="hpl" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">a-inhibin</label>
+                            <div class="layui-input-inline">
+                                <input name="aFallopianTubes" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">预后评分</label>
+                            <div class="layui-input-inline">
+                                <input name="prognosticScore" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">本次化疗方案</label>
+                            <div class="layui-input-inline">
+                                <input name="chemotherapyRegimenNow" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">备注</label>
+                            <div class="layui-input-inline">
+                                <input name="remarks" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">其他治疗方法</label>
+                            <div class="layui-input-inline">
+                                <input name="adjuvantTherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">结果</label>
+                            <div class="layui-input-inline">
+                                <input name="followupEndingTwo" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">死亡时间规范</label>
+                            <div class="layui-input-inline">
+                                <input name="deathTimeSpecification" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+
+                        <li class="_li">
+                            <label class="layui-form-label">住院患者非计划再次手术（是否）</label>
+                            <div class="layui-input-inline">
+                                <input name="unplannedReoperation" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+
+                        <li class="_li">
+                            <label class="layui-form-label">生产史</label>
+                            <div class="layui-input-inline">
+                                <input name="productionHistory" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">流产史</label>
+                            <div class="layui-input-inline">
+                                <input name="abortionHistory" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">配偶包茎</label>
+                            <div class="layui-input-inline">
+                                <input name="spousePhimosis" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">性病史</label>
+                            <div class="layui-input-inline">
+                                <input name="venerealDisease" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">择期手术患者术后平均住院日</label>
+                            <div class="layui-input-inline">
+                                <input name="surgeryStay" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术中化疗方案</label>
+                            <div class="layui-input-inline">
+                                <input name="intraoperativeChemotherapyRegimen" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">脉管内</label>
+                            <div class="layui-input-inline">
+                                <input name="vessel" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">骶前淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="sacral" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">PAX-8</label>
+                            <div class="layui-input-inline">
+                                <input name="pax8" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">Vimentin</label>
+                            <div class="layui-input-inline">
+                                <input name="vimentin" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">腹水或腹腔冲洗液</label>
+                            <div class="layui-input-inline">
+                                <input name="ascites" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术前诊断</label>
+                            <div class="layui-input-inline">
+                                <input name="preoperativeDiagnosis" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术后诊断</label>
+                            <div class="layui-input-inline">
+                                <input name="chronicAppendicitis" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">是否抢救</label>
+                            <div class="layui-input-inline">
+                                <input name="whetherRescue" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">特殊病例</label>
+                            <div class="layui-input-inline">
+                                <input name="specialCases" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">出院后治疗</label>
+                            <div class="layui-input-inline">
+                                <input name="postDischargeTreatment" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第二肿瘤发生</label>
+                            <div class="layui-input-inline">
+                                <input name="secondaryTumorigenesis" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第二肿瘤治疗</label>
+                            <div class="layui-input-inline">
+                                <input name="secondTumorTherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">空白</label>
+                            <div class="layui-input-inline">
+                                <input name="kong" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">合并症</label>
+                            <div class="layui-input-inline">
+                                <input name="complicationsTwo" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">合并症</label>
+                            <div class="layui-input-inline">
+                                <input name="complicationsThr" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">是否</label>
+                            <div class="layui-input-inline">
+                                <input name="whether" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">基本临床信息</label>
+                            <div class="layui-input-inline">
+                                <input name="clinicalInformation" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">住院费用</label>
+                            <div class="layui-input-inline">
+                                <input name="hospitalCosts" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">病史信息</label>
+                            <div class="layui-input-inline">
+                                <input name="historyInformation" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">体格检查</label>
+                            <div class="layui-input-inline">
+                                <input name="physicalCheck" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">实验室检查</label>
+                            <div class="layui-input-inline">
+                                <input name="laboratoryExamination" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">影像学等检查</label>
+                            <div class="layui-input-inline">
+                                <input name="imagingExamination" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">手术情况</label>
+                            <div class="layui-input-inline">
+                                <input name="operationSituation" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">病理</label>
+                            <div class="layui-input-inline">
+                                <input name="pathological" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术后治疗</label>
+                            <div class="layui-input-inline">
+                                <input name="postoperativeTreatment" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访</label>
+                            <div class="layui-input-inline">
+                                <input name="followUp" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">既往史</label>
+                            <div class="layui-input-inline">
+                                <input name="previousHistory" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">先前化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="priorChemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">Β-HCGu/l</label>
+                            <div class="layui-input-inline">
+                                <input name="bHcg" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访年限</label>
+                            <div class="layui-input-inline">
+                                <input name="ageLimit" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CD</label>
+                            <div class="layui-input-inline">
+                                <input name="cd" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">Ki67</label>
+                            <div class="layui-input-inline">
+                                <input name="ki671" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">入院病房</label>
+                            <div class="layui-input-inline">
+                                <input name="hospitalWard" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+
+                        <li class="_li">
+                            <label class="layui-form-label">接触出血</label>
+                            <div class="layui-input-inline">
+                                <input name="contactBleeding" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">阴道流血</label>
+                            <div class="layui-input-inline">
+                                <input name="vaginalBleeding" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">局部疼痛</label>
+                            <div class="layui-input-inline">
+                                <input name="localPain" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">全身症状</label>
+                            <div class="layui-input-inline">
+                                <input name="systemicSymptom" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">大小便</label>
+                            <div class="layui-input-inline">
+                                <input name="urine" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术前化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="preoperativeChemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">性状</label>
+                            <div class="layui-input-inline">
+                                <input name="character" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">量（ml）</label>
+                            <div class="layui-input-inline">
+                                <input name="quantity" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">有无癌细胞</label>
+                            <div class="layui-input-inline">
+                                <input name="cancerFree" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">残余病灶</label>
+                            <div class="layui-input-inline">
+                                <input name="residualLesions" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术前CA125</label>
+                            <div class="layui-input-inline">
+                                <input name="preoperativeCa125" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">子宫</label>
+                            <div class="layui-input-inline">
+                                <input name="uterusTwo" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">卵巢</label>
+                            <div class="layui-input-inline">
+                                <input name="ovaryOne" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CK20</label>
+                            <div class="layui-input-inline">
+                                <input name="ck20" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第七疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="sevChemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第八疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="eigChemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第十一疗程</label>
+                            <div class="layui-input-inline">
+                                <input name="eleChemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">放疗情况</label>
+                            <div class="layui-input-inline">
+                                <input name="radiationTherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发诊断</label>
+                            <div class="layui-input-inline">
+                                <input name="recurrenceDiagnosis" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后住院号</label>
+                            <div class="layui-input-inline">
+                                <input name="admissionNumberRecurrence" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后第一疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="firChemotherapyRecurrence" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后第二疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="twoChemotherapyRecurrence" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后第三疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="thrChemotherapyRecurrence" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后第四疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="fouChemotherapyRecurrence" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后第五疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="fivChemotherapyRecurrence" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后第六疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="sixChemotherapyRecurrence" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访结果</label>
+                            <div class="layui-input-inline">
+                                <input name="resultsFollow" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发情况</label>
+                            <div class="layui-input-inline">
+                                <input name="relapse" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访次数</label>
+                            <div class="layui-input-inline">
+                                <input name="followupNumber" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">最近随访时间</label>
+                            <div class="layui-input-inline">
+                                <input name="lastFollowupTime" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">FIGO评分</label>
+                            <div class="layui-input-inline">
+                                <input name="figo" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">引产史</label>
+                            <div class="layui-input-inline">
+                                <input name="inducedLaborHistory" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">分娩史</label>
+                            <div class="layui-input-inline">
+                                <input name="childbirthHistory" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">HCG</label>
+                            <div class="layui-input-inline">
+                                <input name="chemotherapy" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">HCG变化</label>
+                            <div class="layui-input-inline">
+                                <input name="hcgTwo" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">备注</label>
+                            <div class="layui-input-inline">
+                                <input name="remark" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">SMA</label>
+                            <div class="layui-input-inline">
+                                <input name="sma" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CD10</label>
+                            <div class="layui-input-inline">
+                                <input name="cd10" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">手术后住院时间</label>
+                            <div class="layui-input-inline">
+                                <input name="postoperativeStay" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左髂血管下段淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="leftlowBloodVessels" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右髂血管下段淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="rightlowBloodVessels" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CK19</label>
+                            <div class="layui-input-inline">
+                                <input name="ck19" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">EMA</label>
+                            <div class="layui-input-inline">
+                                <input name="ema" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左腹股沟淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="leftInguinalVein" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右腹股沟脉淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="rightInguinalVein" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左腹股沟浅淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="shallowLeftGroin" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右腹股沟浅淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="shallowRightGroin" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左腹股沟深淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="leftDeepGroin" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右腹股沟深淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="rightDeepGroin" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">MelanA</label>
+                            <div class="layui-input-inline">
+                                <input name="melana" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">HMB45</label>
+                            <div class="layui-input-inline">
+                                <input name="hmb45" class="layui-input" type="text"/>
+                            </div>
+                        </li>
+
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button id="subBTID" class="layui-btn" lay-submit lay-filter="formDemo">添加</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:replace="~{common/footer::ft}"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="@{/}"/>
+    <meta charset="UTF-8">
+    <title>卵巢癌患者信息[[${obj!=null&&obj.id!=null?'修改':'添加'}]]</title>
+    <link rel="stylesheet" href="layui245/css/layui.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <style>
+        ._li {
+            float: left;
+            width: 50%;
+            margin-top: 6px;
+        }
+
+        .layui-form-label {
+            width: 30%;
+        }
+
+        .layui-input-inline {
+            width: 55%;
+        }
+
+        .clearfixed:after {
+            display: block;
+            clear: both;
+            content: "";
+            visibility: hidden;
+            height: 0;
+        }
+
+        .layui-input-block {
+            margin-top: 30px;
+            margin-left: 46%;
+        }
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="~{common/top::topbar}"></div>
+    <div th:replace="~{common/bar::menu(activeModel='ovarian')}"></div>
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <form class="layui-form" id="subForm" method="post" th:action="@{/ovarian/postInfo}" style="width: 600px"
+                  enctype="multipart/form-data">
+                <table class="layui-table">
+                    <div class="clearfixed">
+                        <input name="id" th:value="${obj!=null}?${obj.id}" type="hidden"/>
+                        <li class="_li">
+                            <label class="layui-form-label">编号</label>
+                            <div class="layui-input-inline">
+                                <input name="number" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.number}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">住院号</label>
+                            <div class="layui-input-inline">
+                                <input name="admissionNumber" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.admissionNumber}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">姓名</label>
+                            <div class="layui-input-inline">
+                                <input name="name" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.name}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">年龄</label>
+                            <div class="layui-input-inline">
+                                <input name="age" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.age}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">身份证号码</label>
+                            <div class="layui-input-inline">
+                                <input name="idNumber" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.idNumber}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">家庭电话</label>
+                            <div class="layui-input-inline">
+                                <input name="homePhone" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.homePhone}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">联系人</label>
+                            <div class="layui-input-inline">
+                                <input name="contact" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.contact}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">联系人电话</label>
+                            <div class="layui-input-inline">
+                                <input name="contactNumber" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.contactNumber}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">联系人身份证</label>
+                            <div class="layui-input-inline">
+                                <input name="contactId" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.contactId}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">联系人二</label>
+                            <div class="layui-input-inline">
+                                <input name="contactsTwo" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.contactsTwo}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">联系二电话</label>
+                            <div class="layui-input-inline">
+                                <input name="contactTwo" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.contactTwo}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">联系人二身份证</label>
+                            <div class="layui-input-inline">
+                                <input name="contactIdTwo" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.contactIdTwo}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">入院时间</label>
+                            <div class="layui-input-inline">
+                                <input name="admissionTime" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.admissionTime}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">出院日期</label>
+                            <div class="layui-input-inline">
+                                <input name="dischargeDate" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.dischargeDate}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">住院天数</label>
+                            <div class="layui-input-inline">
+                                <input name="hospitalizationDays" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.hospitalizationDays}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">出院科室</label>
+                            <div class="layui-input-inline">
+                                <input name="hospitalDepartments" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.hospitalDepartments}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">入院病房</label>
+                            <div class="layui-input-inline">
+                                <input name="hospitalWard" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.hospitalWard}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">初婚，年龄</label>
+                            <div class="layui-input-inline">
+                                <input name="firstMarriage" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.firstMarriage}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">婚次</label>
+                            <div class="layui-input-inline">
+                                <input name="weddingTime" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.weddingTime}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">生产次数</label>
+                            <div class="layui-input-inline">
+                                <input name="productionNumber" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.productionNumber}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">流产次数</label>
+                            <div class="layui-input-inline">
+                                <input name="abortionNumber" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.abortionNumber}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">初产年龄</label>
+                            <div class="layui-input-inline">
+                                <input name="brady" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.brady}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">初潮年龄</label>
+                            <div class="layui-input-inline">
+                                <input name="menarcheAge" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.menarcheAge}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">经期</label>
+                            <div class="layui-input-inline">
+                                <input name="menstrualPeriod" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.menstrualPeriod}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">周期</label>
+                            <div class="layui-input-inline">
+                                <input name="cycle" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.cycle}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">绝经年龄</label>
+                            <div class="layui-input-inline">
+                                <input name="menopausalAge" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.menopausalAge}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">LMP</label>
+                            <div class="layui-input-inline">
+                                <input name="lmp" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.lmp}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">配偶包茎</label>
+                            <div class="layui-input-inline">
+                                <input name="spousePhimosis" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.spousePhimosis}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">性病史</label>
+                            <div class="layui-input-inline">
+                                <input name="venerealDisease" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.venerealDisease}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">总费用</label>
+                            <div class="layui-input-inline">
+                                <input name="totalCost" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.totalCost}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">主诉</label>
+                            <div class="layui-input-inline">
+                                <input name="principleAction" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.principleAction}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">家族史</label>
+                            <div class="layui-input-inline">
+                                <input name="familyHistory" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.familyHistory}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">亲属</label>
+                            <div class="layui-input-inline">
+                                <input name="relatives" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.relatives}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">出院诊断</label>
+                            <div class="layui-input-inline">
+                                <input name="hospitalDiagnosis" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.hospitalDiagnosis}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">接触出血</label>
+                            <div class="layui-input-inline">
+                                <input name="touchBlood" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.touchBlood}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">阴道流血</label>
+                            <div class="layui-input-inline">
+                                <input name="vaginalBleeding" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.vaginalBleeding}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">局部疼痛</label>
+                            <div class="layui-input-inline">
+                                <input name="localPain" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.localPain}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">全身症状</label>
+                            <div class="layui-input-inline">
+                                <input name="systemicSymptom" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.systemicSymptom}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">大小便</label>
+                            <div class="layui-input-inline">
+                                <input name="urine" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.urine}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术前化疗方案</label>
+                            <div class="layui-input-inline">
+                                <input name="preoperativeChemotherapyRegimen" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.preoperativeChemotherapyRegimen}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">手术日期</label>
+                            <div class="layui-input-inline">
+                                <input name="surgeryDate" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.surgeryDate}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">手术方式</label>
+                            <div class="layui-input-inline">
+                                <input name="operationMethod" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.operationMethod}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">手术医生</label>
+                            <div class="layui-input-inline">
+                                <input name="surgeon" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.surgeon}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">手术次数</label>
+                            <div class="layui-input-inline">
+                                <input name="operationFrequency" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.operationFrequency}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">切除肿瘤面积</label>
+                            <div class="layui-input-inline">
+                                <input name="tumorArea" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.tumorArea}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">腹水</label>
+                            <div class="layui-input-inline">
+                                <input name="ascites" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.ascites}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">性状</label>
+                            <div class="layui-input-inline">
+                                <input name="characterStr" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.characterStr}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">量（ml）</label>
+                            <div class="layui-input-inline">
+                                <input name="quantity" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.quantity}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">有无癌细胞</label>
+                            <div class="layui-input-inline">
+                                <input name="cancerFree" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.cancerFree}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术中化疗方案</label>
+                            <div class="layui-input-inline">
+                                <input name="intraoperativeChemotherapyRegimen" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.intraoperativeChemotherapyRegimen}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">残余病灶</label>
+                            <div class="layui-input-inline">
+                                <input name="residualLesions" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.residualLesions}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术前CA125</label>
+                            <div class="layui-input-inline">
+                                <input name="preoperativeCa125" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.preoperativeCa125}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CA125</label>
+                            <div class="layui-input-inline">
+                                <input name="ca125" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.ca125}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">分期</label>
+                            <div class="layui-input-inline">
+                                <input name="installment" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.installment}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">辅助治疗</label>
+                            <div class="layui-input-inline">
+                                <input name="adjuvantTherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.adjuvantTherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">病理类型</label>
+                            <div class="layui-input-inline">
+                                <input name="pathologicTypes" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.pathologicTypes}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">病理号</label>
+                            <div class="layui-input-inline">
+                                <input name="pathology" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.pathology}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">病理诊断</label>
+                            <div class="layui-input-inline">
+                                <input name="pathologicalDiagnosis" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.pathologicalDiagnosis}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">合并症</label>
+                            <div class="layui-input-inline">
+                                <input name="complications" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.complications}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">卵巢</label>
+                            <div class="layui-input-inline">
+                                <input name="ovary" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.ovary}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">分化</label>
+                            <div class="layui-input-inline">
+                                <input name="differentiation" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.differentiation}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">分化类型</label>
+                            <div class="layui-input-inline">
+                                <input name="type" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.type}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">侵及范围</label>
+                            <div class="layui-input-inline">
+                                <input name="muscularisInfringement" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.muscularisInfringement}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">脉管内</label>
+                            <div class="layui-input-inline">
+                                <input name="withinVascular" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.withinVascular}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">阴道残端</label>
+                            <div class="layui-input-inline">
+                                <input name="vaginalStump" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.vaginalStump}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左右宫旁组织</label>
+                            <div class="layui-input-inline">
+                                <input name="parasymalTissue" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.parasymalTissue}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左盆腔</label>
+                            <div class="layui-input-inline">
+                                <input name="leftPelvic" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.leftPelvic}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右盆腔</label>
+                            <div class="layui-input-inline">
+                                <input name="rightPelvic" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.rightPelvic}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左髂总淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="leftIliac" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.leftIliac}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右髂总淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="rightIliac" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.rightIliac}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左髂血管淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="leftBloodVessels" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.leftBloodVessels}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右髂血管淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="rightBloodVessels" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.rightBloodVessels}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">左闭孔淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="leftObturator" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.leftObturator}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">右闭孔淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="rightObturator" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.rightObturator}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">腹主动脉旁淋巴结</label>
+                            <div class="layui-input-inline">
+                                <input name="aortaAbdominalis" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.aortaAbdominalis}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">大网膜组织</label>
+                            <div class="layui-input-inline">
+                                <input name="greaterOmentumTissue" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.greaterOmentumTissue}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">阑尾</label>
+                            <div class="layui-input-inline">
+                                <input name="appendix" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.appendix}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">宫颈炎</label>
+                            <div class="layui-input-inline">
+                                <input name="cervicitis" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.cervicitis}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">子宫</label>
+                            <div class="layui-input-inline">
+                                <input name="uterus" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.uterus}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">子宫肌腺</label>
+                            <div class="layui-input-inline">
+                                <input name="uterineMuscleGland" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.uterineMuscleGland}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">子宫</label>
+                            <div class="layui-input-inline">
+                                <input name="uterusTwo" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.uterusTwo}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">卵巢</label>
+                            <div class="layui-input-inline">
+                                <input name="ovaryOne" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.ovaryOne}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">输卵管</label>
+                            <div class="layui-input-inline">
+                                <input name="fallopianTubes" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.fallopianTubes}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">联系地址</label>
+                            <div class="layui-input-inline">
+                                <input name="contactAddress" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.contactAddress}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">ER</label>
+                            <div class="layui-input-inline">
+                                <input name="er" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.er}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">PR</label>
+                            <div class="layui-input-inline">
+                                <input name="pr" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.pr}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">P53</label>
+                            <div class="layui-input-inline">
+                                <input name="p53" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.p53}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">Ki67阳性率%</label>
+                            <div class="layui-input-inline">
+                                <input name="ki67" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.ki67}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">WT-1</label>
+                            <div class="layui-input-inline">
+                                <input name="wt1" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.wt1}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CK</label>
+                            <div class="layui-input-inline">
+                                <input name="ck" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.ck}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CK7</label>
+                            <div class="layui-input-inline">
+                                <input name="ck7" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.ck7}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">CK20</label>
+                            <div class="layui-input-inline">
+                                <input name="ck20" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.ck20}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">其他</label>
+                            <div class="layui-input-inline">
+                                <input name="elseStr" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.elseStr}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">是否疑难病例</label>
+                            <div class="layui-input-inline">
+                                <input name="whetherDifficultCase" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.whetherDifficultCase}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">是存活死亡</label>
+                            <div class="layui-input-inline">
+                                <input name="survival" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.survival}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">死亡时间</label>
+                            <div class="layui-input-inline">
+                                <input name="deathTime" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.deathTime}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">死亡原因</label>
+                            <div class="layui-input-inline">
+                                <input name="deathCause" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.deathCause}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">出院后治疗</label>
+                            <div class="layui-input-inline">
+                                <input name="postDischargeTreatment" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.postDischargeTreatment}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">术后化疗方案</label>
+                            <div class="layui-input-inline">
+                                <input name="postoperativeChemotherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.postoperativeChemotherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">化疗疗程</label>
+                            <div class="layui-input-inline">
+                                <input name="chemotherapyRegimen" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.chemotherapyRegimen}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第一疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="firChemotherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.firChemotherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第二疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="twoChemotherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.twoChemotherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第三疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="thrChemotherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.thrChemotherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第四疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="fouChemotherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.fouChemotherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第五疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="fivChemotherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.fivChemotherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第六疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="sixChemotherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.sixChemotherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第七疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="sevChemotherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.sevChemotherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第八疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="eigChemotherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.eigChemotherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第十一疗程</label>
+                            <div class="layui-input-inline">
+                                <input name="eleChemotherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.eleChemotherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">其他</label>
+                            <div class="layui-input-inline">
+                                <input name="other" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.other}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">放疗情况</label>
+                            <div class="layui-input-inline">
+                                <input name="radiationTherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.radiationTherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">妊娠情况</label>
+                            <div class="layui-input-inline">
+                                <input name="pregnancies" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.pregnancies}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">定期复查</label>
+                            <div class="layui-input-inline">
+                                <input name="regularReview" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.regularReview}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">有无复发</label>
+                            <div class="layui-input-inline">
+                                <input name="recurrence" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.recurrence}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发时间</label>
+                            <div class="layui-input-inline">
+                                <input name="relapseTime" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.relapseTime}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发部位</label>
+                            <div class="layui-input-inline">
+                                <input name="recurrenceParts" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.recurrenceParts}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发诊断</label>
+                            <div class="layui-input-inline">
+                                <input name="recurrenceDiagnosis" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.recurrenceDiagnosis}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后住院号</label>
+                            <div class="layui-input-inline">
+                                <input name="admissionNumberRecurrence" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.admissionNumberRecurrence}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发治疗</label>
+                            <div class="layui-input-inline">
+                                <input name="recurrenceTreatment" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.recurrenceTreatment}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后第一疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="firChemotherapyRecurrence" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.firChemotherapyRecurrence}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后第二疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="twoChemotherapyRecurrence" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.twoChemotherapyRecurrence}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后第三疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="thrChemotherapyRecurrence" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.thrChemotherapyRecurrence}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后第四疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="fouChemotherapyRecurrence" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.fouChemotherapyRecurrence}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后第五疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="fivChemotherapyRecurrence" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.fivChemotherapyRecurrence}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发后第六疗程化疗</label>
+                            <div class="layui-input-inline">
+                                <input name="sixChemotherapyRecurrence" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.sixChemotherapyRecurrence}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">其他</label>
+                            <div class="layui-input-inline">
+                                <input name="others" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.others}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">转移</label>
+                            <div class="layui-input-inline">
+                                <input name="transfer" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.transfer}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第二肿瘤发生</label>
+                            <div class="layui-input-inline">
+                                <input name="secondaryTumorigenesis" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.secondaryTumorigenesis}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">第二肿瘤治疗</label>
+                            <div class="layui-input-inline">
+                                <input name="secondTumorTherapy" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.secondTumorTherapy}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">其他</label>
+                            <div class="layui-input-inline">
+                                <input name="elses" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.elses}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访时间</label>
+                            <div class="layui-input-inline">
+                                <input name="followupTime" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.followupTime}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访结果</label>
+                            <div class="layui-input-inline">
+                                <input name="resultsFollow" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.resultsFollow}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">复发情况</label>
+                            <div class="layui-input-inline">
+                                <input name="relapse" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.relapse}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">死亡时间</label>
+                            <div class="layui-input-inline">
+                                <input name="deathTimeTwo" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.deathTimeTwo}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">死亡原因</label>
+                            <div class="layui-input-inline">
+                                <input name="deathCauseTwo" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.deathCauseTwo}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访次数</label>
+                            <div class="layui-input-inline">
+                                <input name="followupNumber" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.followupNumber}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访时间</label>
+                            <div class="layui-input-inline">
+                                <input name="followupTimeTwo" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.followupTimeTwo}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访结局</label>
+                            <div class="layui-input-inline">
+                                <input name="followupEnding" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.followupEnding}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">随访时间</label>
+                            <div class="layui-input-inline">
+                                <input name="followupTimeThr" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.followupTimeThr}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">最近随访时间</label>
+                            <div class="layui-input-inline">
+                                <input name="lastFollowupTime" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.lastFollowupTime}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">死亡时间</label>
+                            <div class="layui-input-inline">
+                                <input name="deathTimeThr" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.deathTimeThr}"/>
+                            </div>
+                        </li>
+                        <li class="_li">
+                            <label class="layui-form-label">死亡原因</label>
+                            <div class="layui-input-inline">
+                                <input name="deathCauseThr" class="layui-input" type="text"
+                                       th:value="${obj!=null}?${obj.deathCauseThr}"/>
+                            </div>
+                        </li>
+
+                    </div>
+
+
+
+                    <div class="layui-input-block">
+                        <button class="layui-btn layui-btn-normal" type="submit">提交</button>
+                    </div>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div th:replace="~{common/footer::ft}"></div>
+</div>
+<script language="JavaScript" src="js/jquery-3.4.1.min.js"></script>
+<script language="JavaScript" th:src="@{/js/commonRun.js}"></script>
+<script language="JavaScript" th:src="@{/js/laypage_ext.js}"></script>
+</body>
+</html>

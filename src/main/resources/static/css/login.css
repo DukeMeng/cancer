@@ -1,0 +1,51 @@
+body{
+    background:linear-gradient(to right, #2a96e0 , #bda452);
+}
+.us{
+    text-align: right;
+    font-size: 22px;
+    color:#fff;
+    margin-top: 20px;
+    margin-right: 5%;
+}
+.logo-img{
+    width: 130px;
+    height: 40px;
+    display: inline-block;
+}
+.login{
+    text-align:center;
+    margin-top:8%;
+    color:#fff;
+    font-size:40px;
+}
+.name,.password{
+    display: inline-block;
+    width: 50%;
+    margin-left: 25%;
+    height: 36px;
+    margin-top: 30px;
+    padding: 0 10px;
+    font-size: 18px;
+}
+.hint{
+    margin-left:25%;
+    margin-top: 50px;
+}
+.hint input {
+    display: inline-block;
+    width: 82px;
+    height: 36px;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    line-height: 36px;
+    font-size: 17px;
+}
+.hint input:first-child{
+    background:#368436;
+    margin-right: 20px;
+}
+.hint input:nth-child(2){
+    background:#267d5d;
+}

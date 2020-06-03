@@ -1,0 +1,82 @@
+<div class="layui-side layui-bg-black" th:fragment="menu">
+    <div class="layui-side-scroll">
+        <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+        <ul class="layui-nav layui-nav-tree" lay-filter="test">
+            <!-- <li class="layui-nav-item layui-nav-itemed" th:if="${session.user!=null&&session.user.type==0}">
+                 <a class="" href="javascript:;">癌症患者信息管理 </a>
+                 <dl class="layui-nav-child">
+                     <dd th:class="${activeModel=='facedblist'?'layui-this':''}"><a th:href="@{/facedb/list}">人员库列表</a>
+                     </dd>
+                 </dl>
+             </li>-->
+            <li class="layui-nav-item">
+                <a href="javascript:;">癌症患者信息管理</a>
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='carcinoma'?'layui-this':''}"><a
+                            th:href="@{/carcinoma/getInfo}">输卵管癌患者信息的管理</a></dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='cervical'?'layui-this':''}"><a
+                            th:href="@{/cervical/getInfo}">宫颈癌患者信息的管理</a></dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='epithelioma'?'layui-this':''}"><a
+                            th:href="@{/epithelioma/getInfo}">宫颈上皮肉瘤患者信息的管理</a></dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='choriocarcinoma'?'layui-this':''}"><a
+                            th:href="@{/choriocarcinoma/getInfo}">绒癌患者信息的管理</a></dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='complementary'?'layui-this':''}"><a
+                            th:href="@{/complementary/getInfo}">子宫内膜癌补充患者信息的管理</a></dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='endometrial'?'layui-this':''}"><a
+                            th:href="@{/endometrial/getInfo}">子宫内膜癌患者信息的管理</a></dd>
+                </dl>
+              <!--  <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='field'?'layui-this':''}"><a
+                            th:href="@{/field/getInfo}">子宫内膜癌字段信息的管理</a></dd>
+                </dl>-->
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='hydatid'?'layui-this':''}"><a
+                            th:href="@{/hydatid/getInfo}">葡萄胎患者信息的管理</a></dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='myoma'?'layui-this':''}"><a
+                            th:href="@{/myoma/getInfo}">未定平滑肌瘤癌患者信息的管理</a></dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='ovarian'?'layui-this':''}"><a
+                            th:href="@{/ovarian/getInfo}">卵巢癌患者信息的管理</a></dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='portuguese'?'layui-this':''}"><a
+                            th:href="@{/portuguese/getInfo}">侵葡患者信息的管理</a></dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='sarcoma'?'layui-this':''}"><a
+                            th:href="@{/sarcoma/getInfo}">肉瘤患者信息的管理</a></dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='special'?'layui-this':''}"><a
+                            th:href="@{/special/getInfo}">特殊病例患者信息的管理</a></dd>
+                </dl>
+               <!-- <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='inspection'?'layui-this':''}"><a
+                            th:href="@{/inspection/getInfo}">妇科肿瘤检验检查项目信息的管理</a></dd>
+                </dl>-->
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='uterine'?'layui-this':''}"><a
+                            th:href="@{/uterine/getInfo}">子宫内瘤患者信息的管理</a></dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd th:class="${activeModel=='vulvar'?'layui-this':''}"><a
+                            th:href="@{/vulvar/getInfo}">外阴癌患者信息的管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+

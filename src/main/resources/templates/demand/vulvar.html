@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="@{/}"/>
+    <meta charset="UTF-8">
+    <title>外阴癌患者信息管理页面</title>
+    <link rel="stylesheet" href="layui245/css/layui.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <style>
+        .layui-body{
+            overflow-x:scroll;
+        }
+        ._dis{
+            margin-bottom:10px;
+        }
+        ._head th,._name{
+            white-space: nowrap;
+        }
+        .clearfixed:after{
+            display:block;
+            clear:both;
+            content:"";
+            visibility:hidden;
+            height:0;
+        }
+
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="~{common/top::topbar}"></div>
+    <div th:replace="~{common/bar::menu(activeModel='vulvar')}"></div>
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <button class="layui-btn layui-btn-normal _dis"
+                    th:attr="action=@{/vulvar/transitIncrease}">添加信息
+            </button>
+            <form id="subForm" method="post" th:action="@{/vulvar/getInfo}">
+                住院号：<input name="admissionNumber" th:type="text"/>
+                姓名：<input name="name" th:type="text"/>
+                病理号：<input name="pathology" th:type="text"/>
+                <button class="layui-btn layui-btn-xs layui-btn-radius  layui-btn-normal" th:type="submit">查询
+                </button>
+                <input th:if="${page!=null}" th:value="${page.total}" th:type="hidden" id="page_totalID"/>
+                <input th:if="${page!=null}" name="pageNum" th:value="${page.pageNum}" th:type="hidden"
+                       id="page_pageNumID"/>
+                <input th:if="${page!=null}" name="pageSize" th:value="${page.pageSize}" th:type="hidden"
+                       id="page_pageSizeID"/>
+            </form>
+            <table id="dataTable" class="layui-table" lay-even="" lay-skin="row">
+                <thead>
+                <tr class="_head">
+                    <th>住院号</th>
+                    <th>姓名</th>
+                    <th>身份证号</th>
+                    <th>病理号</th>
+                    <th>手术医生</th>
+                    <th>分化</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="[[${obj.uid}]]" th:each="obj:${page.list}">
+                    <td th:text="${obj.admissionNumber}"></td>
+                    <td th:text="${obj.name}"></td>
+                    <td th:text="${obj.idNumber}"></td>
+                    <td th:text="${obj.pathology}"></td>
+                    <td th:text="${obj.surgeon}"></td>
+                    <td th:text="${obj.differentiation}"></td>
+
+                    <td>
+                        <button class="layui-btn layui-btn-xs layui-btn-radius  layui-btn-normal"
+                                th:attr="action=@{/vulvar/amend},id=${obj.id}">编辑
+                        </button>
+                        <button class="layui-btn layui-btn-xs layui-btn-radius  layui-btn-danger"
+                                th:attr="action=@{/vulvar/deleteInfo},id=${obj.id},delstate=true">删除
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <form id="subFormID" method="post"></form>
+
+            <div id="pageDIV" style="text-align: right"></div>
+        </div>
+    </div>
+    <div th:replace="~{common/footer::ft}"></div>
+</div>
+<script language="JavaScript" src="js/jquery-3.4.1.min.js"></script>
+<script language="JavaScript" th:src="@{/js/commonRun.js}"></script>
+<script language="JavaScript" th:src="@{/js/laypage_ext.js}"></script>
+</body>
+</html>

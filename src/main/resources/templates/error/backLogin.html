@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<base th:href="@{/}"/>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>错误提示</title>
+	<link th:href="@{/layui245/css/layui.css}" rel="stylesheet">
+	<script language="JavaScript" src="js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+
+<div class="layui-collapse">
+	<div class="layui-colla-item">
+		<h2 class="layui-colla-title">错误信息:</h2>
+		<div class="layui-colla-content  layui-show" th:text="${message}"></div>
+		<input onclick="history.go(-1)" class="layui-btn layui-btn-xs layui-btn-radius  layui-btn-normal" type="button" value="返回登陆">
+	</div>
+</div>
+<script language="JavaScript" th:src="@{/layui245/layui.all.js}"></script>
+</body>
+</html>

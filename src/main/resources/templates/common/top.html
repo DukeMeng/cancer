@@ -1,0 +1,24 @@
+<div class="layui-header" th:fragment="topbar" style="line-height: 60px;">
+    <div class="layui-logo">
+        <img style="width: 160px;height: 40px;" src="images/logo.png">
+    </div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+        <script language="JavaScript" src="js/top.js"></script>
+        <link href="css/top.css"/>
+        <div class="_head" style="line-height: 60px;">
+            <span style="margin-right:8px;" id="riqi"></span><span style="margin-right:8px;" id="shijian"></span><span style="margin-right:8px;" id="xingqi"></span>
+            <span style="margin-right:8px;" id="didian"></span><span style="margin-right:8px;" id="wendu"></span><span style="margin-right:8px;color:#ec5205;font-size:17px" id="tianqi"></span>
+        </div>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
+            <a href="javascript:;">
+                <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                <input id="username" name="username" type="text" th:value="${session.username}" readonly
+                       style="width:80px;border-color:transparent;background:transparent;color:#fff" />
+            </a>
+        </li>
+        <li class="layui-nav-item"><a th:href="@{/disembark/getOut(username=${session.username})}">退了</a></li>
+    </ul>
+</div>

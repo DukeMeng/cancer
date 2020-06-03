@@ -1,0 +1,48 @@
+/**
+.com-bg{
+    background: url("../img/com-bg.jpg") no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size:cover;
+}
+.phone-bg{
+    background: url("../img/phone-bg.jpg") no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-size:cover;
+}
+ */
+._color{
+    color:#fff;
+}
+.btn-color{
+    background:#005d00;
+    border-color:#005d00;
+    color:#fff;
+}
+
+#remote-video-wrap div{
+    display: inline-block;
+}
+.pcvideo{
+    width: 50%;
+}
+._mbig{
+    height: 100vh;
+    position: absolute;
+    top:0px;
+    left: 0px;
+}
+._msmall{
+    position: absolute;
+    width:60px;
+    height: 120px;
+    top:50px;
+    right:60px;
+    z-index:999;
+}
+
+
+
+
+

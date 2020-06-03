@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="@{/}"/>
+    <meta charset="UTF-8">
+    <title>癌症患者信息管理</title>
+    <link rel="stylesheet" href="layui245/css/layui.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="~{common/top::topbar}"></div>
+    <div th:replace="~{common/bar::menu(activeModel='index')}"></div>
+    <div class="layui-body">
+        <!-- 内容主体区域
+        <div style="padding: 15px;">
+            <button class="layui-btn layui-btn-xs layui-btn-radius  layui-btn-normal"
+                    th:attr="action=@{/afr/camera}">调用摄像头
+            </button>
+            <button class="layui-btn layui-btn-xs layui-btn-radius  layui-btn-normal"
+                    th:attr="action=@{/afr/recognition}">人脸识别
+            </button>
+        </div>
+         -->
+    </div>
+    <div th:replace="~{common/footer::ft}"></div>
+</div>
+<script language="JavaScript" src="js/jquery-3.4.1.min.js"></script>
+<script language="JavaScript" th:src="@{/js/commonRun.js}"></script>
+</body>
+</html>

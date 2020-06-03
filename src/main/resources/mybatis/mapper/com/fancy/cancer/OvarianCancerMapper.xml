@@ -1,0 +1,1859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fancy.cancer.impl.mapper.OvarianCancerMapper">
+    <resultMap id="BaseResultMap" type="com.fancy.cancer.api.po.OvarianCancer">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="number" jdbcType="VARCHAR" property="number"/>
+        <result column="admission_number" jdbcType="VARCHAR" property="admissionNumber"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="age" jdbcType="VARCHAR" property="age"/>
+        <result column="id_number" jdbcType="VARCHAR" property="idNumber"/>
+        <result column="home_phone" jdbcType="VARCHAR" property="homePhone"/>
+        <result column="contact" jdbcType="VARCHAR" property="contact"/>
+        <result column="contact_number" jdbcType="VARCHAR" property="contactNumber"/>
+        <result column="contact_id" jdbcType="VARCHAR" property="contactId"/>
+        <result column="contacts_two" jdbcType="VARCHAR" property="contactsTwo"/>
+        <result column="contact_two" jdbcType="VARCHAR" property="contactTwo"/>
+        <result column="contact_id_two" jdbcType="VARCHAR" property="contactIdTwo"/>
+        <result column="admission_time" jdbcType="VARCHAR" property="admissionTime"/>
+        <result column="discharge_date" jdbcType="VARCHAR" property="dischargeDate"/>
+        <result column="hospitalization_days" jdbcType="VARCHAR" property="hospitalizationDays"/>
+        <result column="hospital_departments" jdbcType="VARCHAR" property="hospitalDepartments"/>
+        <result column="hospital_ward" jdbcType="VARCHAR" property="hospitalWard"/>
+        <result column="first_marriage" jdbcType="VARCHAR" property="firstMarriage"/>
+        <result column="wedding_time" jdbcType="VARCHAR" property="weddingTime"/>
+        <result column="production_number" jdbcType="VARCHAR" property="productionNumber"/>
+        <result column="abortion_number" jdbcType="VARCHAR" property="abortionNumber"/>
+        <result column="brady" jdbcType="VARCHAR" property="brady"/>
+        <result column="menarche_age" jdbcType="VARCHAR" property="menarcheAge"/>
+        <result column="menstrual_period" jdbcType="VARCHAR" property="menstrualPeriod"/>
+        <result column="cycle" jdbcType="VARCHAR" property="cycle"/>
+        <result column="menopausal_age" jdbcType="VARCHAR" property="menopausalAge"/>
+        <result column="lmp" jdbcType="VARCHAR" property="lmp"/>
+        <result column="spouse_phimosis" jdbcType="VARCHAR" property="spousePhimosis"/>
+        <result column="venereal_disease" jdbcType="VARCHAR" property="venerealDisease"/>
+        <result column="total_cost" jdbcType="VARCHAR" property="totalCost"/>
+        <result column="principle_action" jdbcType="VARCHAR" property="principleAction"/>
+        <result column="family_history" jdbcType="VARCHAR" property="familyHistory"/>
+        <result column="relatives" jdbcType="VARCHAR" property="relatives"/>
+        <result column="hospital_diagnosis" jdbcType="VARCHAR" property="hospitalDiagnosis"/>
+        <result column="touch_blood" jdbcType="VARCHAR" property="touchBlood"/>
+        <result column="vaginal_bleeding" jdbcType="VARCHAR" property="vaginalBleeding"/>
+        <result column="local_pain" jdbcType="VARCHAR" property="localPain"/>
+        <result column="systemic_symptom" jdbcType="VARCHAR" property="systemicSymptom"/>
+        <result column="urine" jdbcType="VARCHAR" property="urine"/>
+        <result column="preoperative_chemotherapy_regimen" jdbcType="VARCHAR"
+                property="preoperativeChemotherapyRegimen"/>
+        <result column="surgery_date" jdbcType="VARCHAR" property="surgeryDate"/>
+        <result column="operation_method" jdbcType="VARCHAR" property="operationMethod"/>
+        <result column="surgeon" jdbcType="VARCHAR" property="surgeon"/>
+        <result column="operation_frequency" jdbcType="VARCHAR" property="operationFrequency"/>
+        <result column="tumor_area" jdbcType="VARCHAR" property="tumorArea"/>
+        <result column="ascites" jdbcType="VARCHAR" property="ascites"/>
+        <result column="character_str" jdbcType="VARCHAR" property="characterStr"/>
+        <result column="quantity" jdbcType="VARCHAR" property="quantity"/>
+        <result column="cancer_free" jdbcType="VARCHAR" property="cancerFree"/>
+        <result column="intraoperative_chemotherapy_regimen" jdbcType="VARCHAR"
+                property="intraoperativeChemotherapyRegimen"/>
+        <result column="residual_lesions" jdbcType="VARCHAR" property="residualLesions"/>
+        <result column="preoperative_ca125" jdbcType="VARCHAR" property="preoperativeCa125"/>
+        <result column="ca125" jdbcType="VARCHAR" property="ca125"/>
+        <result column="installment" jdbcType="VARCHAR" property="installment"/>
+        <result column="adjuvant_therapy" jdbcType="VARCHAR" property="adjuvantTherapy"/>
+        <result column="pathologic_types" jdbcType="VARCHAR" property="pathologicTypes"/>
+        <result column="pathology" jdbcType="VARCHAR" property="pathology"/>
+        <result column="pathological_diagnosis" jdbcType="VARCHAR" property="pathologicalDiagnosis"/>
+        <result column="complications" jdbcType="VARCHAR" property="complications"/>
+        <result column="ovary" jdbcType="VARCHAR" property="ovary"/>
+        <result column="differentiation" jdbcType="VARCHAR" property="differentiation"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="muscularis_infringement" jdbcType="VARCHAR" property="muscularisInfringement"/>
+        <result column="within_vascular" jdbcType="VARCHAR" property="withinVascular"/>
+        <result column="vaginal_stump" jdbcType="VARCHAR" property="vaginalStump"/>
+        <result column="parasymal_tissue" jdbcType="VARCHAR" property="parasymalTissue"/>
+        <result column="left_pelvic" jdbcType="VARCHAR" property="leftPelvic"/>
+        <result column="right_pelvic" jdbcType="VARCHAR" property="rightPelvic"/>
+        <result column="left_iliac" jdbcType="VARCHAR" property="leftIliac"/>
+        <result column="right_iliac" jdbcType="VARCHAR" property="rightIliac"/>
+        <result column="left_blood_vessels" jdbcType="VARCHAR" property="leftBloodVessels"/>
+        <result column="right_blood_vessels" jdbcType="VARCHAR" property="rightBloodVessels"/>
+        <result column="left_obturator" jdbcType="VARCHAR" property="leftObturator"/>
+        <result column="right_obturator" jdbcType="VARCHAR" property="rightObturator"/>
+        <result column="aorta_abdominalis" jdbcType="VARCHAR" property="aortaAbdominalis"/>
+        <result column="greater_omentum_tissue" jdbcType="VARCHAR" property="greaterOmentumTissue"/>
+        <result column="appendix" jdbcType="VARCHAR" property="appendix"/>
+        <result column="cervicitis" jdbcType="VARCHAR" property="cervicitis"/>
+        <result column="uterus" jdbcType="VARCHAR" property="uterus"/>
+        <result column="uterine_muscle_gland" jdbcType="VARCHAR" property="uterineMuscleGland"/>
+        <result column="uterus_two" jdbcType="VARCHAR" property="uterusTwo"/>
+        <result column="ovary_one" jdbcType="VARCHAR" property="ovaryOne"/>
+        <result column="fallopian_tubes" jdbcType="VARCHAR" property="fallopianTubes"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.fancy.cancer.api.po.OvarianCancer">
+        <result column="contact_address" jdbcType="LONGVARCHAR" property="contactAddress"/>
+        <result column="er" jdbcType="LONGVARCHAR" property="er"/>
+        <result column="pr" jdbcType="LONGVARCHAR" property="pr"/>
+        <result column="p53" jdbcType="LONGVARCHAR" property="p53"/>
+        <result column="ki67" jdbcType="LONGVARCHAR" property="ki67"/>
+        <result column="wt1" jdbcType="LONGVARCHAR" property="wt1"/>
+        <result column="ck" jdbcType="LONGVARCHAR" property="ck"/>
+        <result column="ck7" jdbcType="LONGVARCHAR" property="ck7"/>
+        <result column="ck20" jdbcType="LONGVARCHAR" property="ck20"/>
+        <result column="else_str" jdbcType="LONGVARCHAR" property="elseStr"/>
+        <result column="whether_difficult_case" jdbcType="LONGVARCHAR" property="whetherDifficultCase"/>
+        <result column="survival" jdbcType="LONGVARCHAR" property="survival"/>
+        <result column="death_time" jdbcType="LONGVARCHAR" property="deathTime"/>
+        <result column="death_cause" jdbcType="LONGVARCHAR" property="deathCause"/>
+        <result column="post_discharge_treatment" jdbcType="LONGVARCHAR" property="postDischargeTreatment"/>
+        <result column="postoperative_chemotherapy" jdbcType="LONGVARCHAR" property="postoperativeChemotherapy"/>
+        <result column="chemotherapy_regimen" jdbcType="LONGVARCHAR" property="chemotherapyRegimen"/>
+        <result column="fir_chemotherapy" jdbcType="LONGVARCHAR" property="firChemotherapy"/>
+        <result column="two_chemotherapy" jdbcType="LONGVARCHAR" property="twoChemotherapy"/>
+        <result column="thr_chemotherapy" jdbcType="LONGVARCHAR" property="thrChemotherapy"/>
+        <result column="fou_chemotherapy" jdbcType="LONGVARCHAR" property="fouChemotherapy"/>
+        <result column="fiv_chemotherapy" jdbcType="LONGVARCHAR" property="fivChemotherapy"/>
+        <result column="six_chemotherapy" jdbcType="LONGVARCHAR" property="sixChemotherapy"/>
+        <result column="sev_chemotherapy" jdbcType="LONGVARCHAR" property="sevChemotherapy"/>
+        <result column="eig_chemotherapy" jdbcType="LONGVARCHAR" property="eigChemotherapy"/>
+        <result column="ele_chemotherapy" jdbcType="LONGVARCHAR" property="eleChemotherapy"/>
+        <result column="other" jdbcType="LONGVARCHAR" property="other"/>
+        <result column="radiation_therapy" jdbcType="LONGVARCHAR" property="radiationTherapy"/>
+        <result column="pregnancies" jdbcType="LONGVARCHAR" property="pregnancies"/>
+        <result column="regular_review" jdbcType="LONGVARCHAR" property="regularReview"/>
+        <result column="recurrence" jdbcType="LONGVARCHAR" property="recurrence"/>
+        <result column="relapse_time" jdbcType="LONGVARCHAR" property="relapseTime"/>
+        <result column="recurrence_parts" jdbcType="LONGVARCHAR" property="recurrenceParts"/>
+        <result column="recurrence_diagnosis" jdbcType="LONGVARCHAR" property="recurrenceDiagnosis"/>
+        <result column="admission_number_recurrence" jdbcType="LONGVARCHAR" property="admissionNumberRecurrence"/>
+        <result column="recurrence_treatment" jdbcType="LONGVARCHAR" property="recurrenceTreatment"/>
+        <result column="fir_chemotherapy_recurrence" jdbcType="LONGVARCHAR" property="firChemotherapyRecurrence"/>
+        <result column="two_chemotherapy_recurrence" jdbcType="LONGVARCHAR" property="twoChemotherapyRecurrence"/>
+        <result column="thr_chemotherapy_recurrence" jdbcType="LONGVARCHAR" property="thrChemotherapyRecurrence"/>
+        <result column="fou_chemotherapy_recurrence" jdbcType="LONGVARCHAR" property="fouChemotherapyRecurrence"/>
+        <result column="fiv_chemotherapy_recurrence" jdbcType="LONGVARCHAR" property="fivChemotherapyRecurrence"/>
+        <result column="six_chemotherapy_recurrence" jdbcType="LONGVARCHAR" property="sixChemotherapyRecurrence"/>
+        <result column="others" jdbcType="LONGVARCHAR" property="others"/>
+        <result column="transfer" jdbcType="LONGVARCHAR" property="transfer"/>
+        <result column="secondary_tumorigenesis" jdbcType="LONGVARCHAR" property="secondaryTumorigenesis"/>
+        <result column="second_tumor_therapy" jdbcType="LONGVARCHAR" property="secondTumorTherapy"/>
+        <result column="elses" jdbcType="LONGVARCHAR" property="elses"/>
+        <result column="followup_time" jdbcType="LONGVARCHAR" property="followupTime"/>
+        <result column="results_follow" jdbcType="LONGVARCHAR" property="resultsFollow"/>
+        <result column="relapse" jdbcType="LONGVARCHAR" property="relapse"/>
+        <result column="death_time_two" jdbcType="LONGVARCHAR" property="deathTimeTwo"/>
+        <result column="death_cause_two" jdbcType="LONGVARCHAR" property="deathCauseTwo"/>
+        <result column="followup_number" jdbcType="LONGVARCHAR" property="followupNumber"/>
+        <result column="followup_time_two" jdbcType="LONGVARCHAR" property="followupTimeTwo"/>
+        <result column="followup_ending" jdbcType="LONGVARCHAR" property="followupEnding"/>
+        <result column="followup_time_thr" jdbcType="LONGVARCHAR" property="followupTimeThr"/>
+        <result column="last_followup_time" jdbcType="LONGVARCHAR" property="lastFollowupTime"/>
+        <result column="death_time_thr" jdbcType="LONGVARCHAR" property="deathTimeThr"/>
+        <result column="death_cause_thr" jdbcType="LONGVARCHAR" property="deathCauseThr"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, number, admission_number, name, age, id_number, home_phone, contact, contact_number, 
+    contact_id, contacts_two, contact_two, contact_id_two, admission_time, discharge_date, 
+    hospitalization_days, hospital_departments, hospital_ward, first_marriage, wedding_time, 
+    production_number, abortion_number, brady, menarche_age, menstrual_period, cycle, 
+    menopausal_age, lmp, spouse_phimosis, venereal_disease, total_cost, principle_action, 
+    family_history, relatives, hospital_diagnosis, touch_blood, vaginal_bleeding, local_pain, 
+    systemic_symptom, urine, preoperative_chemotherapy_regimen, surgery_date, operation_method, 
+    surgeon, operation_frequency, tumor_area, ascites, character_str, quantity, cancer_free, 
+    intraoperative_chemotherapy_regimen, residual_lesions, preoperative_ca125, ca125, 
+    installment, adjuvant_therapy, pathologic_types, pathology, pathological_diagnosis, 
+    complications, ovary, differentiation, type, muscularis_infringement, within_vascular, 
+    vaginal_stump, parasymal_tissue, left_pelvic, right_pelvic, left_iliac, right_iliac, 
+    left_blood_vessels, right_blood_vessels, left_obturator, right_obturator, aorta_abdominalis, 
+    greater_omentum_tissue, appendix, cervicitis, uterus, uterine_muscle_gland, uterus_two, 
+    ovary_one, fallopian_tubes
+  </sql>
+    <sql id="Blob_Column_List">
+    contact_address, er, pr, p53, ki67, wt1, ck, ck7, ck20, else_str, whether_difficult_case, 
+    survival, death_time, death_cause, post_discharge_treatment, postoperative_chemotherapy, 
+    chemotherapy_regimen, fir_chemotherapy, two_chemotherapy, thr_chemotherapy, fou_chemotherapy, 
+    fiv_chemotherapy, six_chemotherapy, sev_chemotherapy, eig_chemotherapy, ele_chemotherapy, 
+    other, radiation_therapy, pregnancies, regular_review, recurrence, relapse_time, 
+    recurrence_parts, recurrence_diagnosis, admission_number_recurrence, recurrence_treatment, 
+    fir_chemotherapy_recurrence, two_chemotherapy_recurrence, thr_chemotherapy_recurrence, 
+    fou_chemotherapy_recurrence, fiv_chemotherapy_recurrence, six_chemotherapy_recurrence, 
+    others, transfer, secondary_tumorigenesis, second_tumor_therapy, elses, followup_time, 
+    results_follow, relapse, death_time_two, death_cause_two, followup_number, followup_time_two, 
+    followup_ending, followup_time_thr, last_followup_time, death_time_thr, death_cause_thr
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from ovarian_cancer
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ovarian_cancer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.fancy.cancer.api.po.OvarianCancer">
+    insert into ovarian_cancer (id, number, admission_number, 
+      name, age, id_number, 
+      home_phone, contact, contact_number, 
+      contact_id, contacts_two, contact_two, 
+      contact_id_two, admission_time, discharge_date, 
+      hospitalization_days, hospital_departments, 
+      hospital_ward, first_marriage, wedding_time, 
+      production_number, abortion_number, brady, 
+      menarche_age, menstrual_period, cycle, 
+      menopausal_age, lmp, spouse_phimosis, 
+      venereal_disease, total_cost, principle_action, 
+      family_history, relatives, hospital_diagnosis, 
+      touch_blood, vaginal_bleeding, local_pain, 
+      systemic_symptom, urine, preoperative_chemotherapy_regimen, 
+      surgery_date, operation_method, surgeon, 
+      operation_frequency, tumor_area, ascites, 
+      character_str, quantity, cancer_free, 
+      intraoperative_chemotherapy_regimen, residual_lesions, 
+      preoperative_ca125, ca125, installment, 
+      adjuvant_therapy, pathologic_types, pathology, 
+      pathological_diagnosis, complications, ovary, 
+      differentiation, type, muscularis_infringement, 
+      within_vascular, vaginal_stump, parasymal_tissue, 
+      left_pelvic, right_pelvic, left_iliac, 
+      right_iliac, left_blood_vessels, right_blood_vessels, 
+      left_obturator, right_obturator, aorta_abdominalis, 
+      greater_omentum_tissue, appendix, cervicitis, 
+      uterus, uterine_muscle_gland, uterus_two, 
+      ovary_one, fallopian_tubes, contact_address, 
+      er, pr, p53, 
+      ki67, wt1, ck, 
+      ck7, ck20, else_str, 
+      whether_difficult_case, survival, 
+      death_time, death_cause, post_discharge_treatment, 
+      postoperative_chemotherapy, chemotherapy_regimen, 
+      fir_chemotherapy, two_chemotherapy, 
+      thr_chemotherapy, fou_chemotherapy, 
+      fiv_chemotherapy, six_chemotherapy, 
+      sev_chemotherapy, eig_chemotherapy, 
+      ele_chemotherapy, other, radiation_therapy, 
+      pregnancies, regular_review, recurrence, 
+      relapse_time, recurrence_parts, recurrence_diagnosis, 
+      admission_number_recurrence, recurrence_treatment, 
+      fir_chemotherapy_recurrence, two_chemotherapy_recurrence, 
+      thr_chemotherapy_recurrence, fou_chemotherapy_recurrence, 
+      fiv_chemotherapy_recurrence, six_chemotherapy_recurrence, 
+      others, transfer, secondary_tumorigenesis, 
+      second_tumor_therapy, elses, followup_time, 
+      results_follow, relapse, death_time_two, 
+      death_cause_two, followup_number, 
+      followup_time_two, followup_ending, 
+      followup_time_thr, last_followup_time, 
+      death_time_thr, death_cause_thr)
+    values (#{id,jdbcType=INTEGER}, #{number,jdbcType=VARCHAR}, #{admissionNumber,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, 
+      #{homePhone,jdbcType=VARCHAR}, #{contact,jdbcType=VARCHAR}, #{contactNumber,jdbcType=VARCHAR}, 
+      #{contactId,jdbcType=VARCHAR}, #{contactsTwo,jdbcType=VARCHAR}, #{contactTwo,jdbcType=VARCHAR}, 
+      #{contactIdTwo,jdbcType=VARCHAR}, #{admissionTime,jdbcType=VARCHAR}, #{dischargeDate,jdbcType=VARCHAR}, 
+      #{hospitalizationDays,jdbcType=VARCHAR}, #{hospitalDepartments,jdbcType=VARCHAR}, 
+      #{hospitalWard,jdbcType=VARCHAR}, #{firstMarriage,jdbcType=VARCHAR}, #{weddingTime,jdbcType=VARCHAR}, 
+      #{productionNumber,jdbcType=VARCHAR}, #{abortionNumber,jdbcType=VARCHAR}, #{brady,jdbcType=VARCHAR}, 
+      #{menarcheAge,jdbcType=VARCHAR}, #{menstrualPeriod,jdbcType=VARCHAR}, #{cycle,jdbcType=VARCHAR}, 
+      #{menopausalAge,jdbcType=VARCHAR}, #{lmp,jdbcType=VARCHAR}, #{spousePhimosis,jdbcType=VARCHAR}, 
+      #{venerealDisease,jdbcType=VARCHAR}, #{totalCost,jdbcType=VARCHAR}, #{principleAction,jdbcType=VARCHAR}, 
+      #{familyHistory,jdbcType=VARCHAR}, #{relatives,jdbcType=VARCHAR}, #{hospitalDiagnosis,jdbcType=VARCHAR}, 
+      #{touchBlood,jdbcType=VARCHAR}, #{vaginalBleeding,jdbcType=VARCHAR}, #{localPain,jdbcType=VARCHAR}, 
+      #{systemicSymptom,jdbcType=VARCHAR}, #{urine,jdbcType=VARCHAR}, #{preoperativeChemotherapyRegimen,jdbcType=VARCHAR}, 
+      #{surgeryDate,jdbcType=VARCHAR}, #{operationMethod,jdbcType=VARCHAR}, #{surgeon,jdbcType=VARCHAR}, 
+      #{operationFrequency,jdbcType=VARCHAR}, #{tumorArea,jdbcType=VARCHAR}, #{ascites,jdbcType=VARCHAR}, 
+      #{characterStr,jdbcType=VARCHAR}, #{quantity,jdbcType=VARCHAR}, #{cancerFree,jdbcType=VARCHAR}, 
+      #{intraoperativeChemotherapyRegimen,jdbcType=VARCHAR}, #{residualLesions,jdbcType=VARCHAR}, 
+      #{preoperativeCa125,jdbcType=VARCHAR}, #{ca125,jdbcType=VARCHAR}, #{installment,jdbcType=VARCHAR}, 
+      #{adjuvantTherapy,jdbcType=VARCHAR}, #{pathologicTypes,jdbcType=VARCHAR}, #{pathology,jdbcType=VARCHAR}, 
+      #{pathologicalDiagnosis,jdbcType=VARCHAR}, #{complications,jdbcType=VARCHAR}, #{ovary,jdbcType=VARCHAR}, 
+      #{differentiation,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{muscularisInfringement,jdbcType=VARCHAR}, 
+      #{withinVascular,jdbcType=VARCHAR}, #{vaginalStump,jdbcType=VARCHAR}, #{parasymalTissue,jdbcType=VARCHAR}, 
+      #{leftPelvic,jdbcType=VARCHAR}, #{rightPelvic,jdbcType=VARCHAR}, #{leftIliac,jdbcType=VARCHAR}, 
+      #{rightIliac,jdbcType=VARCHAR}, #{leftBloodVessels,jdbcType=VARCHAR}, #{rightBloodVessels,jdbcType=VARCHAR}, 
+      #{leftObturator,jdbcType=VARCHAR}, #{rightObturator,jdbcType=VARCHAR}, #{aortaAbdominalis,jdbcType=VARCHAR}, 
+      #{greaterOmentumTissue,jdbcType=VARCHAR}, #{appendix,jdbcType=VARCHAR}, #{cervicitis,jdbcType=VARCHAR}, 
+      #{uterus,jdbcType=VARCHAR}, #{uterineMuscleGland,jdbcType=VARCHAR}, #{uterusTwo,jdbcType=VARCHAR}, 
+      #{ovaryOne,jdbcType=VARCHAR}, #{fallopianTubes,jdbcType=VARCHAR}, #{contactAddress,jdbcType=LONGVARCHAR}, 
+      #{er,jdbcType=LONGVARCHAR}, #{pr,jdbcType=LONGVARCHAR}, #{p53,jdbcType=LONGVARCHAR}, 
+      #{ki67,jdbcType=LONGVARCHAR}, #{wt1,jdbcType=LONGVARCHAR}, #{ck,jdbcType=LONGVARCHAR}, 
+      #{ck7,jdbcType=LONGVARCHAR}, #{ck20,jdbcType=LONGVARCHAR}, #{elseStr,jdbcType=LONGVARCHAR}, 
+      #{whetherDifficultCase,jdbcType=LONGVARCHAR}, #{survival,jdbcType=LONGVARCHAR}, 
+      #{deathTime,jdbcType=LONGVARCHAR}, #{deathCause,jdbcType=LONGVARCHAR}, #{postDischargeTreatment,jdbcType=LONGVARCHAR}, 
+      #{postoperativeChemotherapy,jdbcType=LONGVARCHAR}, #{chemotherapyRegimen,jdbcType=LONGVARCHAR}, 
+      #{firChemotherapy,jdbcType=LONGVARCHAR}, #{twoChemotherapy,jdbcType=LONGVARCHAR}, 
+      #{thrChemotherapy,jdbcType=LONGVARCHAR}, #{fouChemotherapy,jdbcType=LONGVARCHAR}, 
+      #{fivChemotherapy,jdbcType=LONGVARCHAR}, #{sixChemotherapy,jdbcType=LONGVARCHAR}, 
+      #{sevChemotherapy,jdbcType=LONGVARCHAR}, #{eigChemotherapy,jdbcType=LONGVARCHAR}, 
+      #{eleChemotherapy,jdbcType=LONGVARCHAR}, #{other,jdbcType=LONGVARCHAR}, #{radiationTherapy,jdbcType=LONGVARCHAR}, 
+      #{pregnancies,jdbcType=LONGVARCHAR}, #{regularReview,jdbcType=LONGVARCHAR}, #{recurrence,jdbcType=LONGVARCHAR}, 
+      #{relapseTime,jdbcType=LONGVARCHAR}, #{recurrenceParts,jdbcType=LONGVARCHAR}, #{recurrenceDiagnosis,jdbcType=LONGVARCHAR}, 
+      #{admissionNumberRecurrence,jdbcType=LONGVARCHAR}, #{recurrenceTreatment,jdbcType=LONGVARCHAR}, 
+      #{firChemotherapyRecurrence,jdbcType=LONGVARCHAR}, #{twoChemotherapyRecurrence,jdbcType=LONGVARCHAR}, 
+      #{thrChemotherapyRecurrence,jdbcType=LONGVARCHAR}, #{fouChemotherapyRecurrence,jdbcType=LONGVARCHAR}, 
+      #{fivChemotherapyRecurrence,jdbcType=LONGVARCHAR}, #{sixChemotherapyRecurrence,jdbcType=LONGVARCHAR}, 
+      #{others,jdbcType=LONGVARCHAR}, #{transfer,jdbcType=LONGVARCHAR}, #{secondaryTumorigenesis,jdbcType=LONGVARCHAR}, 
+      #{secondTumorTherapy,jdbcType=LONGVARCHAR}, #{elses,jdbcType=LONGVARCHAR}, #{followupTime,jdbcType=LONGVARCHAR}, 
+      #{resultsFollow,jdbcType=LONGVARCHAR}, #{relapse,jdbcType=LONGVARCHAR}, #{deathTimeTwo,jdbcType=LONGVARCHAR}, 
+      #{deathCauseTwo,jdbcType=LONGVARCHAR}, #{followupNumber,jdbcType=LONGVARCHAR}, 
+      #{followupTimeTwo,jdbcType=LONGVARCHAR}, #{followupEnding,jdbcType=LONGVARCHAR}, 
+      #{followupTimeThr,jdbcType=LONGVARCHAR}, #{lastFollowupTime,jdbcType=LONGVARCHAR}, 
+      #{deathTimeThr,jdbcType=LONGVARCHAR}, #{deathCauseThr,jdbcType=LONGVARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.fancy.cancer.api.po.OvarianCancer">
+        insert into ovarian_cancer
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="number != null">
+                number,
+            </if>
+            <if test="admissionNumber != null">
+                admission_number,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="age != null">
+                age,
+            </if>
+            <if test="idNumber != null">
+                id_number,
+            </if>
+            <if test="homePhone != null">
+                home_phone,
+            </if>
+            <if test="contact != null">
+                contact,
+            </if>
+            <if test="contactNumber != null">
+                contact_number,
+            </if>
+            <if test="contactId != null">
+                contact_id,
+            </if>
+            <if test="contactsTwo != null">
+                contacts_two,
+            </if>
+            <if test="contactTwo != null">
+                contact_two,
+            </if>
+            <if test="contactIdTwo != null">
+                contact_id_two,
+            </if>
+            <if test="admissionTime != null">
+                admission_time,
+            </if>
+            <if test="dischargeDate != null">
+                discharge_date,
+            </if>
+            <if test="hospitalizationDays != null">
+                hospitalization_days,
+            </if>
+            <if test="hospitalDepartments != null">
+                hospital_departments,
+            </if>
+            <if test="hospitalWard != null">
+                hospital_ward,
+            </if>
+            <if test="firstMarriage != null">
+                first_marriage,
+            </if>
+            <if test="weddingTime != null">
+                wedding_time,
+            </if>
+            <if test="productionNumber != null">
+                production_number,
+            </if>
+            <if test="abortionNumber != null">
+                abortion_number,
+            </if>
+            <if test="brady != null">
+                brady,
+            </if>
+            <if test="menarcheAge != null">
+                menarche_age,
+            </if>
+            <if test="menstrualPeriod != null">
+                menstrual_period,
+            </if>
+            <if test="cycle != null">
+                cycle,
+            </if>
+            <if test="menopausalAge != null">
+                menopausal_age,
+            </if>
+            <if test="lmp != null">
+                lmp,
+            </if>
+            <if test="spousePhimosis != null">
+                spouse_phimosis,
+            </if>
+            <if test="venerealDisease != null">
+                venereal_disease,
+            </if>
+            <if test="totalCost != null">
+                total_cost,
+            </if>
+            <if test="principleAction != null">
+                principle_action,
+            </if>
+            <if test="familyHistory != null">
+                family_history,
+            </if>
+            <if test="relatives != null">
+                relatives,
+            </if>
+            <if test="hospitalDiagnosis != null">
+                hospital_diagnosis,
+            </if>
+            <if test="touchBlood != null">
+                touch_blood,
+            </if>
+            <if test="vaginalBleeding != null">
+                vaginal_bleeding,
+            </if>
+            <if test="localPain != null">
+                local_pain,
+            </if>
+            <if test="systemicSymptom != null">
+                systemic_symptom,
+            </if>
+            <if test="urine != null">
+                urine,
+            </if>
+            <if test="preoperativeChemotherapyRegimen != null">
+                preoperative_chemotherapy_regimen,
+            </if>
+            <if test="surgeryDate != null">
+                surgery_date,
+            </if>
+            <if test="operationMethod != null">
+                operation_method,
+            </if>
+            <if test="surgeon != null">
+                surgeon,
+            </if>
+            <if test="operationFrequency != null">
+                operation_frequency,
+            </if>
+            <if test="tumorArea != null">
+                tumor_area,
+            </if>
+            <if test="ascites != null">
+                ascites,
+            </if>
+            <if test="characterStr != null">
+                character_str,
+            </if>
+            <if test="quantity != null">
+                quantity,
+            </if>
+            <if test="cancerFree != null">
+                cancer_free,
+            </if>
+            <if test="intraoperativeChemotherapyRegimen != null">
+                intraoperative_chemotherapy_regimen,
+            </if>
+            <if test="residualLesions != null">
+                residual_lesions,
+            </if>
+            <if test="preoperativeCa125 != null">
+                preoperative_ca125,
+            </if>
+            <if test="ca125 != null">
+                ca125,
+            </if>
+            <if test="installment != null">
+                installment,
+            </if>
+            <if test="adjuvantTherapy != null">
+                adjuvant_therapy,
+            </if>
+            <if test="pathologicTypes != null">
+                pathologic_types,
+            </if>
+            <if test="pathology != null">
+                pathology,
+            </if>
+            <if test="pathologicalDiagnosis != null">
+                pathological_diagnosis,
+            </if>
+            <if test="complications != null">
+                complications,
+            </if>
+            <if test="ovary != null">
+                ovary,
+            </if>
+            <if test="differentiation != null">
+                differentiation,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="muscularisInfringement != null">
+                muscularis_infringement,
+            </if>
+            <if test="withinVascular != null">
+                within_vascular,
+            </if>
+            <if test="vaginalStump != null">
+                vaginal_stump,
+            </if>
+            <if test="parasymalTissue != null">
+                parasymal_tissue,
+            </if>
+            <if test="leftPelvic != null">
+                left_pelvic,
+            </if>
+            <if test="rightPelvic != null">
+                right_pelvic,
+            </if>
+            <if test="leftIliac != null">
+                left_iliac,
+            </if>
+            <if test="rightIliac != null">
+                right_iliac,
+            </if>
+            <if test="leftBloodVessels != null">
+                left_blood_vessels,
+            </if>
+            <if test="rightBloodVessels != null">
+                right_blood_vessels,
+            </if>
+            <if test="leftObturator != null">
+                left_obturator,
+            </if>
+            <if test="rightObturator != null">
+                right_obturator,
+            </if>
+            <if test="aortaAbdominalis != null">
+                aorta_abdominalis,
+            </if>
+            <if test="greaterOmentumTissue != null">
+                greater_omentum_tissue,
+            </if>
+            <if test="appendix != null">
+                appendix,
+            </if>
+            <if test="cervicitis != null">
+                cervicitis,
+            </if>
+            <if test="uterus != null">
+                uterus,
+            </if>
+            <if test="uterineMuscleGland != null">
+                uterine_muscle_gland,
+            </if>
+            <if test="uterusTwo != null">
+                uterus_two,
+            </if>
+            <if test="ovaryOne != null">
+                ovary_one,
+            </if>
+            <if test="fallopianTubes != null">
+                fallopian_tubes,
+            </if>
+            <if test="contactAddress != null">
+                contact_address,
+            </if>
+            <if test="er != null">
+                er,
+            </if>
+            <if test="pr != null">
+                pr,
+            </if>
+            <if test="p53 != null">
+                p53,
+            </if>
+            <if test="ki67 != null">
+                ki67,
+            </if>
+            <if test="wt1 != null">
+                wt1,
+            </if>
+            <if test="ck != null">
+                ck,
+            </if>
+            <if test="ck7 != null">
+                ck7,
+            </if>
+            <if test="ck20 != null">
+                ck20,
+            </if>
+            <if test="elseStr != null">
+                else_str,
+            </if>
+            <if test="whetherDifficultCase != null">
+                whether_difficult_case,
+            </if>
+            <if test="survival != null">
+                survival,
+            </if>
+            <if test="deathTime != null">
+                death_time,
+            </if>
+            <if test="deathCause != null">
+                death_cause,
+            </if>
+            <if test="postDischargeTreatment != null">
+                post_discharge_treatment,
+            </if>
+            <if test="postoperativeChemotherapy != null">
+                postoperative_chemotherapy,
+            </if>
+            <if test="chemotherapyRegimen != null">
+                chemotherapy_regimen,
+            </if>
+            <if test="firChemotherapy != null">
+                fir_chemotherapy,
+            </if>
+            <if test="twoChemotherapy != null">
+                two_chemotherapy,
+            </if>
+            <if test="thrChemotherapy != null">
+                thr_chemotherapy,
+            </if>
+            <if test="fouChemotherapy != null">
+                fou_chemotherapy,
+            </if>
+            <if test="fivChemotherapy != null">
+                fiv_chemotherapy,
+            </if>
+            <if test="sixChemotherapy != null">
+                six_chemotherapy,
+            </if>
+            <if test="sevChemotherapy != null">
+                sev_chemotherapy,
+            </if>
+            <if test="eigChemotherapy != null">
+                eig_chemotherapy,
+            </if>
+            <if test="eleChemotherapy != null">
+                ele_chemotherapy,
+            </if>
+            <if test="other != null">
+                other,
+            </if>
+            <if test="radiationTherapy != null">
+                radiation_therapy,
+            </if>
+            <if test="pregnancies != null">
+                pregnancies,
+            </if>
+            <if test="regularReview != null">
+                regular_review,
+            </if>
+            <if test="recurrence != null">
+                recurrence,
+            </if>
+            <if test="relapseTime != null">
+                relapse_time,
+            </if>
+            <if test="recurrenceParts != null">
+                recurrence_parts,
+            </if>
+            <if test="recurrenceDiagnosis != null">
+                recurrence_diagnosis,
+            </if>
+            <if test="admissionNumberRecurrence != null">
+                admission_number_recurrence,
+            </if>
+            <if test="recurrenceTreatment != null">
+                recurrence_treatment,
+            </if>
+            <if test="firChemotherapyRecurrence != null">
+                fir_chemotherapy_recurrence,
+            </if>
+            <if test="twoChemotherapyRecurrence != null">
+                two_chemotherapy_recurrence,
+            </if>
+            <if test="thrChemotherapyRecurrence != null">
+                thr_chemotherapy_recurrence,
+            </if>
+            <if test="fouChemotherapyRecurrence != null">
+                fou_chemotherapy_recurrence,
+            </if>
+            <if test="fivChemotherapyRecurrence != null">
+                fiv_chemotherapy_recurrence,
+            </if>
+            <if test="sixChemotherapyRecurrence != null">
+                six_chemotherapy_recurrence,
+            </if>
+            <if test="others != null">
+                others,
+            </if>
+            <if test="transfer != null">
+                transfer,
+            </if>
+            <if test="secondaryTumorigenesis != null">
+                secondary_tumorigenesis,
+            </if>
+            <if test="secondTumorTherapy != null">
+                second_tumor_therapy,
+            </if>
+            <if test="elses != null">
+                elses,
+            </if>
+            <if test="followupTime != null">
+                followup_time,
+            </if>
+            <if test="resultsFollow != null">
+                results_follow,
+            </if>
+            <if test="relapse != null">
+                relapse,
+            </if>
+            <if test="deathTimeTwo != null">
+                death_time_two,
+            </if>
+            <if test="deathCauseTwo != null">
+                death_cause_two,
+            </if>
+            <if test="followupNumber != null">
+                followup_number,
+            </if>
+            <if test="followupTimeTwo != null">
+                followup_time_two,
+            </if>
+            <if test="followupEnding != null">
+                followup_ending,
+            </if>
+            <if test="followupTimeThr != null">
+                followup_time_thr,
+            </if>
+            <if test="lastFollowupTime != null">
+                last_followup_time,
+            </if>
+            <if test="deathTimeThr != null">
+                death_time_thr,
+            </if>
+            <if test="deathCauseThr != null">
+                death_cause_thr,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="number != null">
+                #{number,jdbcType=VARCHAR},
+            </if>
+            <if test="admissionNumber != null">
+                #{admissionNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                #{age,jdbcType=VARCHAR},
+            </if>
+            <if test="idNumber != null">
+                #{idNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="homePhone != null">
+                #{homePhone,jdbcType=VARCHAR},
+            </if>
+            <if test="contact != null">
+                #{contact,jdbcType=VARCHAR},
+            </if>
+            <if test="contactNumber != null">
+                #{contactNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="contactId != null">
+                #{contactId,jdbcType=VARCHAR},
+            </if>
+            <if test="contactsTwo != null">
+                #{contactsTwo,jdbcType=VARCHAR},
+            </if>
+            <if test="contactTwo != null">
+                #{contactTwo,jdbcType=VARCHAR},
+            </if>
+            <if test="contactIdTwo != null">
+                #{contactIdTwo,jdbcType=VARCHAR},
+            </if>
+            <if test="admissionTime != null">
+                #{admissionTime,jdbcType=VARCHAR},
+            </if>
+            <if test="dischargeDate != null">
+                #{dischargeDate,jdbcType=VARCHAR},
+            </if>
+            <if test="hospitalizationDays != null">
+                #{hospitalizationDays,jdbcType=VARCHAR},
+            </if>
+            <if test="hospitalDepartments != null">
+                #{hospitalDepartments,jdbcType=VARCHAR},
+            </if>
+            <if test="hospitalWard != null">
+                #{hospitalWard,jdbcType=VARCHAR},
+            </if>
+            <if test="firstMarriage != null">
+                #{firstMarriage,jdbcType=VARCHAR},
+            </if>
+            <if test="weddingTime != null">
+                #{weddingTime,jdbcType=VARCHAR},
+            </if>
+            <if test="productionNumber != null">
+                #{productionNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="abortionNumber != null">
+                #{abortionNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="brady != null">
+                #{brady,jdbcType=VARCHAR},
+            </if>
+            <if test="menarcheAge != null">
+                #{menarcheAge,jdbcType=VARCHAR},
+            </if>
+            <if test="menstrualPeriod != null">
+                #{menstrualPeriod,jdbcType=VARCHAR},
+            </if>
+            <if test="cycle != null">
+                #{cycle,jdbcType=VARCHAR},
+            </if>
+            <if test="menopausalAge != null">
+                #{menopausalAge,jdbcType=VARCHAR},
+            </if>
+            <if test="lmp != null">
+                #{lmp,jdbcType=VARCHAR},
+            </if>
+            <if test="spousePhimosis != null">
+                #{spousePhimosis,jdbcType=VARCHAR},
+            </if>
+            <if test="venerealDisease != null">
+                #{venerealDisease,jdbcType=VARCHAR},
+            </if>
+            <if test="totalCost != null">
+                #{totalCost,jdbcType=VARCHAR},
+            </if>
+            <if test="principleAction != null">
+                #{principleAction,jdbcType=VARCHAR},
+            </if>
+            <if test="familyHistory != null">
+                #{familyHistory,jdbcType=VARCHAR},
+            </if>
+            <if test="relatives != null">
+                #{relatives,jdbcType=VARCHAR},
+            </if>
+            <if test="hospitalDiagnosis != null">
+                #{hospitalDiagnosis,jdbcType=VARCHAR},
+            </if>
+            <if test="touchBlood != null">
+                #{touchBlood,jdbcType=VARCHAR},
+            </if>
+            <if test="vaginalBleeding != null">
+                #{vaginalBleeding,jdbcType=VARCHAR},
+            </if>
+            <if test="localPain != null">
+                #{localPain,jdbcType=VARCHAR},
+            </if>
+            <if test="systemicSymptom != null">
+                #{systemicSymptom,jdbcType=VARCHAR},
+            </if>
+            <if test="urine != null">
+                #{urine,jdbcType=VARCHAR},
+            </if>
+            <if test="preoperativeChemotherapyRegimen != null">
+                #{preoperativeChemotherapyRegimen,jdbcType=VARCHAR},
+            </if>
+            <if test="surgeryDate != null">
+                #{surgeryDate,jdbcType=VARCHAR},
+            </if>
+            <if test="operationMethod != null">
+                #{operationMethod,jdbcType=VARCHAR},
+            </if>
+            <if test="surgeon != null">
+                #{surgeon,jdbcType=VARCHAR},
+            </if>
+            <if test="operationFrequency != null">
+                #{operationFrequency,jdbcType=VARCHAR},
+            </if>
+            <if test="tumorArea != null">
+                #{tumorArea,jdbcType=VARCHAR},
+            </if>
+            <if test="ascites != null">
+                #{ascites,jdbcType=VARCHAR},
+            </if>
+            <if test="characterStr != null">
+                #{characterStr,jdbcType=VARCHAR},
+            </if>
+            <if test="quantity != null">
+                #{quantity,jdbcType=VARCHAR},
+            </if>
+            <if test="cancerFree != null">
+                #{cancerFree,jdbcType=VARCHAR},
+            </if>
+            <if test="intraoperativeChemotherapyRegimen != null">
+                #{intraoperativeChemotherapyRegimen,jdbcType=VARCHAR},
+            </if>
+            <if test="residualLesions != null">
+                #{residualLesions,jdbcType=VARCHAR},
+            </if>
+            <if test="preoperativeCa125 != null">
+                #{preoperativeCa125,jdbcType=VARCHAR},
+            </if>
+            <if test="ca125 != null">
+                #{ca125,jdbcType=VARCHAR},
+            </if>
+            <if test="installment != null">
+                #{installment,jdbcType=VARCHAR},
+            </if>
+            <if test="adjuvantTherapy != null">
+                #{adjuvantTherapy,jdbcType=VARCHAR},
+            </if>
+            <if test="pathologicTypes != null">
+                #{pathologicTypes,jdbcType=VARCHAR},
+            </if>
+            <if test="pathology != null">
+                #{pathology,jdbcType=VARCHAR},
+            </if>
+            <if test="pathologicalDiagnosis != null">
+                #{pathologicalDiagnosis,jdbcType=VARCHAR},
+            </if>
+            <if test="complications != null">
+                #{complications,jdbcType=VARCHAR},
+            </if>
+            <if test="ovary != null">
+                #{ovary,jdbcType=VARCHAR},
+            </if>
+            <if test="differentiation != null">
+                #{differentiation,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="muscularisInfringement != null">
+                #{muscularisInfringement,jdbcType=VARCHAR},
+            </if>
+            <if test="withinVascular != null">
+                #{withinVascular,jdbcType=VARCHAR},
+            </if>
+            <if test="vaginalStump != null">
+                #{vaginalStump,jdbcType=VARCHAR},
+            </if>
+            <if test="parasymalTissue != null">
+                #{parasymalTissue,jdbcType=VARCHAR},
+            </if>
+            <if test="leftPelvic != null">
+                #{leftPelvic,jdbcType=VARCHAR},
+            </if>
+            <if test="rightPelvic != null">
+                #{rightPelvic,jdbcType=VARCHAR},
+            </if>
+            <if test="leftIliac != null">
+                #{leftIliac,jdbcType=VARCHAR},
+            </if>
+            <if test="rightIliac != null">
+                #{rightIliac,jdbcType=VARCHAR},
+            </if>
+            <if test="leftBloodVessels != null">
+                #{leftBloodVessels,jdbcType=VARCHAR},
+            </if>
+            <if test="rightBloodVessels != null">
+                #{rightBloodVessels,jdbcType=VARCHAR},
+            </if>
+            <if test="leftObturator != null">
+                #{leftObturator,jdbcType=VARCHAR},
+            </if>
+            <if test="rightObturator != null">
+                #{rightObturator,jdbcType=VARCHAR},
+            </if>
+            <if test="aortaAbdominalis != null">
+                #{aortaAbdominalis,jdbcType=VARCHAR},
+            </if>
+            <if test="greaterOmentumTissue != null">
+                #{greaterOmentumTissue,jdbcType=VARCHAR},
+            </if>
+            <if test="appendix != null">
+                #{appendix,jdbcType=VARCHAR},
+            </if>
+            <if test="cervicitis != null">
+                #{cervicitis,jdbcType=VARCHAR},
+            </if>
+            <if test="uterus != null">
+                #{uterus,jdbcType=VARCHAR},
+            </if>
+            <if test="uterineMuscleGland != null">
+                #{uterineMuscleGland,jdbcType=VARCHAR},
+            </if>
+            <if test="uterusTwo != null">
+                #{uterusTwo,jdbcType=VARCHAR},
+            </if>
+            <if test="ovaryOne != null">
+                #{ovaryOne,jdbcType=VARCHAR},
+            </if>
+            <if test="fallopianTubes != null">
+                #{fallopianTubes,jdbcType=VARCHAR},
+            </if>
+            <if test="contactAddress != null">
+                #{contactAddress,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="er != null">
+                #{er,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="pr != null">
+                #{pr,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="p53 != null">
+                #{p53,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ki67 != null">
+                #{ki67,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="wt1 != null">
+                #{wt1,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ck != null">
+                #{ck,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ck7 != null">
+                #{ck7,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ck20 != null">
+                #{ck20,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="elseStr != null">
+                #{elseStr,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="whetherDifficultCase != null">
+                #{whetherDifficultCase,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="survival != null">
+                #{survival,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="deathTime != null">
+                #{deathTime,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="deathCause != null">
+                #{deathCause,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="postDischargeTreatment != null">
+                #{postDischargeTreatment,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="postoperativeChemotherapy != null">
+                #{postoperativeChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="chemotherapyRegimen != null">
+                #{chemotherapyRegimen,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="firChemotherapy != null">
+                #{firChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="twoChemotherapy != null">
+                #{twoChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="thrChemotherapy != null">
+                #{thrChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="fouChemotherapy != null">
+                #{fouChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="fivChemotherapy != null">
+                #{fivChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="sixChemotherapy != null">
+                #{sixChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="sevChemotherapy != null">
+                #{sevChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="eigChemotherapy != null">
+                #{eigChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="eleChemotherapy != null">
+                #{eleChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="other != null">
+                #{other,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="radiationTherapy != null">
+                #{radiationTherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="pregnancies != null">
+                #{pregnancies,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="regularReview != null">
+                #{regularReview,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="recurrence != null">
+                #{recurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="relapseTime != null">
+                #{relapseTime,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="recurrenceParts != null">
+                #{recurrenceParts,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="recurrenceDiagnosis != null">
+                #{recurrenceDiagnosis,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="admissionNumberRecurrence != null">
+                #{admissionNumberRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="recurrenceTreatment != null">
+                #{recurrenceTreatment,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="firChemotherapyRecurrence != null">
+                #{firChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="twoChemotherapyRecurrence != null">
+                #{twoChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="thrChemotherapyRecurrence != null">
+                #{thrChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="fouChemotherapyRecurrence != null">
+                #{fouChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="fivChemotherapyRecurrence != null">
+                #{fivChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="sixChemotherapyRecurrence != null">
+                #{sixChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="others != null">
+                #{others,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="transfer != null">
+                #{transfer,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="secondaryTumorigenesis != null">
+                #{secondaryTumorigenesis,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="secondTumorTherapy != null">
+                #{secondTumorTherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="elses != null">
+                #{elses,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="followupTime != null">
+                #{followupTime,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="resultsFollow != null">
+                #{resultsFollow,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="relapse != null">
+                #{relapse,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="deathTimeTwo != null">
+                #{deathTimeTwo,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="deathCauseTwo != null">
+                #{deathCauseTwo,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="followupNumber != null">
+                #{followupNumber,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="followupTimeTwo != null">
+                #{followupTimeTwo,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="followupEnding != null">
+                #{followupEnding,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="followupTimeThr != null">
+                #{followupTimeThr,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="lastFollowupTime != null">
+                #{lastFollowupTime,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="deathTimeThr != null">
+                #{deathTimeThr,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="deathCauseThr != null">
+                #{deathCauseThr,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.fancy.cancer.api.po.OvarianCancer">
+        update ovarian_cancer
+        <set>
+            <if test="number != null">
+                number = #{number,jdbcType=VARCHAR},
+            </if>
+            <if test="admissionNumber != null">
+                admission_number = #{admissionNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                age = #{age,jdbcType=VARCHAR},
+            </if>
+            <if test="idNumber != null">
+                id_number = #{idNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="homePhone != null">
+                home_phone = #{homePhone,jdbcType=VARCHAR},
+            </if>
+            <if test="contact != null">
+                contact = #{contact,jdbcType=VARCHAR},
+            </if>
+            <if test="contactNumber != null">
+                contact_number = #{contactNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="contactId != null">
+                contact_id = #{contactId,jdbcType=VARCHAR},
+            </if>
+            <if test="contactsTwo != null">
+                contacts_two = #{contactsTwo,jdbcType=VARCHAR},
+            </if>
+            <if test="contactTwo != null">
+                contact_two = #{contactTwo,jdbcType=VARCHAR},
+            </if>
+            <if test="contactIdTwo != null">
+                contact_id_two = #{contactIdTwo,jdbcType=VARCHAR},
+            </if>
+            <if test="admissionTime != null">
+                admission_time = #{admissionTime,jdbcType=VARCHAR},
+            </if>
+            <if test="dischargeDate != null">
+                discharge_date = #{dischargeDate,jdbcType=VARCHAR},
+            </if>
+            <if test="hospitalizationDays != null">
+                hospitalization_days = #{hospitalizationDays,jdbcType=VARCHAR},
+            </if>
+            <if test="hospitalDepartments != null">
+                hospital_departments = #{hospitalDepartments,jdbcType=VARCHAR},
+            </if>
+            <if test="hospitalWard != null">
+                hospital_ward = #{hospitalWard,jdbcType=VARCHAR},
+            </if>
+            <if test="firstMarriage != null">
+                first_marriage = #{firstMarriage,jdbcType=VARCHAR},
+            </if>
+            <if test="weddingTime != null">
+                wedding_time = #{weddingTime,jdbcType=VARCHAR},
+            </if>
+            <if test="productionNumber != null">
+                production_number = #{productionNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="abortionNumber != null">
+                abortion_number = #{abortionNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="brady != null">
+                brady = #{brady,jdbcType=VARCHAR},
+            </if>
+            <if test="menarcheAge != null">
+                menarche_age = #{menarcheAge,jdbcType=VARCHAR},
+            </if>
+            <if test="menstrualPeriod != null">
+                menstrual_period = #{menstrualPeriod,jdbcType=VARCHAR},
+            </if>
+            <if test="cycle != null">
+                cycle = #{cycle,jdbcType=VARCHAR},
+            </if>
+            <if test="menopausalAge != null">
+                menopausal_age = #{menopausalAge,jdbcType=VARCHAR},
+            </if>
+            <if test="lmp != null">
+                lmp = #{lmp,jdbcType=VARCHAR},
+            </if>
+            <if test="spousePhimosis != null">
+                spouse_phimosis = #{spousePhimosis,jdbcType=VARCHAR},
+            </if>
+            <if test="venerealDisease != null">
+                venereal_disease = #{venerealDisease,jdbcType=VARCHAR},
+            </if>
+            <if test="totalCost != null">
+                total_cost = #{totalCost,jdbcType=VARCHAR},
+            </if>
+            <if test="principleAction != null">
+                principle_action = #{principleAction,jdbcType=VARCHAR},
+            </if>
+            <if test="familyHistory != null">
+                family_history = #{familyHistory,jdbcType=VARCHAR},
+            </if>
+            <if test="relatives != null">
+                relatives = #{relatives,jdbcType=VARCHAR},
+            </if>
+            <if test="hospitalDiagnosis != null">
+                hospital_diagnosis = #{hospitalDiagnosis,jdbcType=VARCHAR},
+            </if>
+            <if test="touchBlood != null">
+                touch_blood = #{touchBlood,jdbcType=VARCHAR},
+            </if>
+            <if test="vaginalBleeding != null">
+                vaginal_bleeding = #{vaginalBleeding,jdbcType=VARCHAR},
+            </if>
+            <if test="localPain != null">
+                local_pain = #{localPain,jdbcType=VARCHAR},
+            </if>
+            <if test="systemicSymptom != null">
+                systemic_symptom = #{systemicSymptom,jdbcType=VARCHAR},
+            </if>
+            <if test="urine != null">
+                urine = #{urine,jdbcType=VARCHAR},
+            </if>
+            <if test="preoperativeChemotherapyRegimen != null">
+                preoperative_chemotherapy_regimen = #{preoperativeChemotherapyRegimen,jdbcType=VARCHAR},
+            </if>
+            <if test="surgeryDate != null">
+                surgery_date = #{surgeryDate,jdbcType=VARCHAR},
+            </if>
+            <if test="operationMethod != null">
+                operation_method = #{operationMethod,jdbcType=VARCHAR},
+            </if>
+            <if test="surgeon != null">
+                surgeon = #{surgeon,jdbcType=VARCHAR},
+            </if>
+            <if test="operationFrequency != null">
+                operation_frequency = #{operationFrequency,jdbcType=VARCHAR},
+            </if>
+            <if test="tumorArea != null">
+                tumor_area = #{tumorArea,jdbcType=VARCHAR},
+            </if>
+            <if test="ascites != null">
+                ascites = #{ascites,jdbcType=VARCHAR},
+            </if>
+            <if test="characterStr != null">
+                character_str = #{characterStr,jdbcType=VARCHAR},
+            </if>
+            <if test="quantity != null">
+                quantity = #{quantity,jdbcType=VARCHAR},
+            </if>
+            <if test="cancerFree != null">
+                cancer_free = #{cancerFree,jdbcType=VARCHAR},
+            </if>
+            <if test="intraoperativeChemotherapyRegimen != null">
+                intraoperative_chemotherapy_regimen = #{intraoperativeChemotherapyRegimen,jdbcType=VARCHAR},
+            </if>
+            <if test="residualLesions != null">
+                residual_lesions = #{residualLesions,jdbcType=VARCHAR},
+            </if>
+            <if test="preoperativeCa125 != null">
+                preoperative_ca125 = #{preoperativeCa125,jdbcType=VARCHAR},
+            </if>
+            <if test="ca125 != null">
+                ca125 = #{ca125,jdbcType=VARCHAR},
+            </if>
+            <if test="installment != null">
+                installment = #{installment,jdbcType=VARCHAR},
+            </if>
+            <if test="adjuvantTherapy != null">
+                adjuvant_therapy = #{adjuvantTherapy,jdbcType=VARCHAR},
+            </if>
+            <if test="pathologicTypes != null">
+                pathologic_types = #{pathologicTypes,jdbcType=VARCHAR},
+            </if>
+            <if test="pathology != null">
+                pathology = #{pathology,jdbcType=VARCHAR},
+            </if>
+            <if test="pathologicalDiagnosis != null">
+                pathological_diagnosis = #{pathologicalDiagnosis,jdbcType=VARCHAR},
+            </if>
+            <if test="complications != null">
+                complications = #{complications,jdbcType=VARCHAR},
+            </if>
+            <if test="ovary != null">
+                ovary = #{ovary,jdbcType=VARCHAR},
+            </if>
+            <if test="differentiation != null">
+                differentiation = #{differentiation,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="muscularisInfringement != null">
+                muscularis_infringement = #{muscularisInfringement,jdbcType=VARCHAR},
+            </if>
+            <if test="withinVascular != null">
+                within_vascular = #{withinVascular,jdbcType=VARCHAR},
+            </if>
+            <if test="vaginalStump != null">
+                vaginal_stump = #{vaginalStump,jdbcType=VARCHAR},
+            </if>
+            <if test="parasymalTissue != null">
+                parasymal_tissue = #{parasymalTissue,jdbcType=VARCHAR},
+            </if>
+            <if test="leftPelvic != null">
+                left_pelvic = #{leftPelvic,jdbcType=VARCHAR},
+            </if>
+            <if test="rightPelvic != null">
+                right_pelvic = #{rightPelvic,jdbcType=VARCHAR},
+            </if>
+            <if test="leftIliac != null">
+                left_iliac = #{leftIliac,jdbcType=VARCHAR},
+            </if>
+            <if test="rightIliac != null">
+                right_iliac = #{rightIliac,jdbcType=VARCHAR},
+            </if>
+            <if test="leftBloodVessels != null">
+                left_blood_vessels = #{leftBloodVessels,jdbcType=VARCHAR},
+            </if>
+            <if test="rightBloodVessels != null">
+                right_blood_vessels = #{rightBloodVessels,jdbcType=VARCHAR},
+            </if>
+            <if test="leftObturator != null">
+                left_obturator = #{leftObturator,jdbcType=VARCHAR},
+            </if>
+            <if test="rightObturator != null">
+                right_obturator = #{rightObturator,jdbcType=VARCHAR},
+            </if>
+            <if test="aortaAbdominalis != null">
+                aorta_abdominalis = #{aortaAbdominalis,jdbcType=VARCHAR},
+            </if>
+            <if test="greaterOmentumTissue != null">
+                greater_omentum_tissue = #{greaterOmentumTissue,jdbcType=VARCHAR},
+            </if>
+            <if test="appendix != null">
+                appendix = #{appendix,jdbcType=VARCHAR},
+            </if>
+            <if test="cervicitis != null">
+                cervicitis = #{cervicitis,jdbcType=VARCHAR},
+            </if>
+            <if test="uterus != null">
+                uterus = #{uterus,jdbcType=VARCHAR},
+            </if>
+            <if test="uterineMuscleGland != null">
+                uterine_muscle_gland = #{uterineMuscleGland,jdbcType=VARCHAR},
+            </if>
+            <if test="uterusTwo != null">
+                uterus_two = #{uterusTwo,jdbcType=VARCHAR},
+            </if>
+            <if test="ovaryOne != null">
+                ovary_one = #{ovaryOne,jdbcType=VARCHAR},
+            </if>
+            <if test="fallopianTubes != null">
+                fallopian_tubes = #{fallopianTubes,jdbcType=VARCHAR},
+            </if>
+            <if test="contactAddress != null">
+                contact_address = #{contactAddress,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="er != null">
+                er = #{er,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="pr != null">
+                pr = #{pr,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="p53 != null">
+                p53 = #{p53,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ki67 != null">
+                ki67 = #{ki67,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="wt1 != null">
+                wt1 = #{wt1,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ck != null">
+                ck = #{ck,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ck7 != null">
+                ck7 = #{ck7,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ck20 != null">
+                ck20 = #{ck20,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="elseStr != null">
+                else_str = #{elseStr,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="whetherDifficultCase != null">
+                whether_difficult_case = #{whetherDifficultCase,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="survival != null">
+                survival = #{survival,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="deathTime != null">
+                death_time = #{deathTime,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="deathCause != null">
+                death_cause = #{deathCause,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="postDischargeTreatment != null">
+                post_discharge_treatment = #{postDischargeTreatment,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="postoperativeChemotherapy != null">
+                postoperative_chemotherapy = #{postoperativeChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="chemotherapyRegimen != null">
+                chemotherapy_regimen = #{chemotherapyRegimen,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="firChemotherapy != null">
+                fir_chemotherapy = #{firChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="twoChemotherapy != null">
+                two_chemotherapy = #{twoChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="thrChemotherapy != null">
+                thr_chemotherapy = #{thrChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="fouChemotherapy != null">
+                fou_chemotherapy = #{fouChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="fivChemotherapy != null">
+                fiv_chemotherapy = #{fivChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="sixChemotherapy != null">
+                six_chemotherapy = #{sixChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="sevChemotherapy != null">
+                sev_chemotherapy = #{sevChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="eigChemotherapy != null">
+                eig_chemotherapy = #{eigChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="eleChemotherapy != null">
+                ele_chemotherapy = #{eleChemotherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="other != null">
+                other = #{other,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="radiationTherapy != null">
+                radiation_therapy = #{radiationTherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="pregnancies != null">
+                pregnancies = #{pregnancies,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="regularReview != null">
+                regular_review = #{regularReview,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="recurrence != null">
+                recurrence = #{recurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="relapseTime != null">
+                relapse_time = #{relapseTime,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="recurrenceParts != null">
+                recurrence_parts = #{recurrenceParts,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="recurrenceDiagnosis != null">
+                recurrence_diagnosis = #{recurrenceDiagnosis,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="admissionNumberRecurrence != null">
+                admission_number_recurrence = #{admissionNumberRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="recurrenceTreatment != null">
+                recurrence_treatment = #{recurrenceTreatment,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="firChemotherapyRecurrence != null">
+                fir_chemotherapy_recurrence = #{firChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="twoChemotherapyRecurrence != null">
+                two_chemotherapy_recurrence = #{twoChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="thrChemotherapyRecurrence != null">
+                thr_chemotherapy_recurrence = #{thrChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="fouChemotherapyRecurrence != null">
+                fou_chemotherapy_recurrence = #{fouChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="fivChemotherapyRecurrence != null">
+                fiv_chemotherapy_recurrence = #{fivChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="sixChemotherapyRecurrence != null">
+                six_chemotherapy_recurrence = #{sixChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="others != null">
+                others = #{others,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="transfer != null">
+                transfer = #{transfer,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="secondaryTumorigenesis != null">
+                secondary_tumorigenesis = #{secondaryTumorigenesis,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="secondTumorTherapy != null">
+                second_tumor_therapy = #{secondTumorTherapy,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="elses != null">
+                elses = #{elses,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="followupTime != null">
+                followup_time = #{followupTime,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="resultsFollow != null">
+                results_follow = #{resultsFollow,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="relapse != null">
+                relapse = #{relapse,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="deathTimeTwo != null">
+                death_time_two = #{deathTimeTwo,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="deathCauseTwo != null">
+                death_cause_two = #{deathCauseTwo,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="followupNumber != null">
+                followup_number = #{followupNumber,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="followupTimeTwo != null">
+                followup_time_two = #{followupTimeTwo,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="followupEnding != null">
+                followup_ending = #{followupEnding,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="followupTimeThr != null">
+                followup_time_thr = #{followupTimeThr,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="lastFollowupTime != null">
+                last_followup_time = #{lastFollowupTime,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="deathTimeThr != null">
+                death_time_thr = #{deathTimeThr,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="deathCauseThr != null">
+                death_cause_thr = #{deathCauseThr,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.fancy.cancer.api.po.OvarianCancer">
+    update ovarian_cancer
+    set number = #{number,jdbcType=VARCHAR},
+      admission_number = #{admissionNumber,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      age = #{age,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      home_phone = #{homePhone,jdbcType=VARCHAR},
+      contact = #{contact,jdbcType=VARCHAR},
+      contact_number = #{contactNumber,jdbcType=VARCHAR},
+      contact_id = #{contactId,jdbcType=VARCHAR},
+      contacts_two = #{contactsTwo,jdbcType=VARCHAR},
+      contact_two = #{contactTwo,jdbcType=VARCHAR},
+      contact_id_two = #{contactIdTwo,jdbcType=VARCHAR},
+      admission_time = #{admissionTime,jdbcType=VARCHAR},
+      discharge_date = #{dischargeDate,jdbcType=VARCHAR},
+      hospitalization_days = #{hospitalizationDays,jdbcType=VARCHAR},
+      hospital_departments = #{hospitalDepartments,jdbcType=VARCHAR},
+      hospital_ward = #{hospitalWard,jdbcType=VARCHAR},
+      first_marriage = #{firstMarriage,jdbcType=VARCHAR},
+      wedding_time = #{weddingTime,jdbcType=VARCHAR},
+      production_number = #{productionNumber,jdbcType=VARCHAR},
+      abortion_number = #{abortionNumber,jdbcType=VARCHAR},
+      brady = #{brady,jdbcType=VARCHAR},
+      menarche_age = #{menarcheAge,jdbcType=VARCHAR},
+      menstrual_period = #{menstrualPeriod,jdbcType=VARCHAR},
+      cycle = #{cycle,jdbcType=VARCHAR},
+      menopausal_age = #{menopausalAge,jdbcType=VARCHAR},
+      lmp = #{lmp,jdbcType=VARCHAR},
+      spouse_phimosis = #{spousePhimosis,jdbcType=VARCHAR},
+      venereal_disease = #{venerealDisease,jdbcType=VARCHAR},
+      total_cost = #{totalCost,jdbcType=VARCHAR},
+      principle_action = #{principleAction,jdbcType=VARCHAR},
+      family_history = #{familyHistory,jdbcType=VARCHAR},
+      relatives = #{relatives,jdbcType=VARCHAR},
+      hospital_diagnosis = #{hospitalDiagnosis,jdbcType=VARCHAR},
+      touch_blood = #{touchBlood,jdbcType=VARCHAR},
+      vaginal_bleeding = #{vaginalBleeding,jdbcType=VARCHAR},
+      local_pain = #{localPain,jdbcType=VARCHAR},
+      systemic_symptom = #{systemicSymptom,jdbcType=VARCHAR},
+      urine = #{urine,jdbcType=VARCHAR},
+      preoperative_chemotherapy_regimen = #{preoperativeChemotherapyRegimen,jdbcType=VARCHAR},
+      surgery_date = #{surgeryDate,jdbcType=VARCHAR},
+      operation_method = #{operationMethod,jdbcType=VARCHAR},
+      surgeon = #{surgeon,jdbcType=VARCHAR},
+      operation_frequency = #{operationFrequency,jdbcType=VARCHAR},
+      tumor_area = #{tumorArea,jdbcType=VARCHAR},
+      ascites = #{ascites,jdbcType=VARCHAR},
+      character_str = #{characterStr,jdbcType=VARCHAR},
+      quantity = #{quantity,jdbcType=VARCHAR},
+      cancer_free = #{cancerFree,jdbcType=VARCHAR},
+      intraoperative_chemotherapy_regimen = #{intraoperativeChemotherapyRegimen,jdbcType=VARCHAR},
+      residual_lesions = #{residualLesions,jdbcType=VARCHAR},
+      preoperative_ca125 = #{preoperativeCa125,jdbcType=VARCHAR},
+      ca125 = #{ca125,jdbcType=VARCHAR},
+      installment = #{installment,jdbcType=VARCHAR},
+      adjuvant_therapy = #{adjuvantTherapy,jdbcType=VARCHAR},
+      pathologic_types = #{pathologicTypes,jdbcType=VARCHAR},
+      pathology = #{pathology,jdbcType=VARCHAR},
+      pathological_diagnosis = #{pathologicalDiagnosis,jdbcType=VARCHAR},
+      complications = #{complications,jdbcType=VARCHAR},
+      ovary = #{ovary,jdbcType=VARCHAR},
+      differentiation = #{differentiation,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      muscularis_infringement = #{muscularisInfringement,jdbcType=VARCHAR},
+      within_vascular = #{withinVascular,jdbcType=VARCHAR},
+      vaginal_stump = #{vaginalStump,jdbcType=VARCHAR},
+      parasymal_tissue = #{parasymalTissue,jdbcType=VARCHAR},
+      left_pelvic = #{leftPelvic,jdbcType=VARCHAR},
+      right_pelvic = #{rightPelvic,jdbcType=VARCHAR},
+      left_iliac = #{leftIliac,jdbcType=VARCHAR},
+      right_iliac = #{rightIliac,jdbcType=VARCHAR},
+      left_blood_vessels = #{leftBloodVessels,jdbcType=VARCHAR},
+      right_blood_vessels = #{rightBloodVessels,jdbcType=VARCHAR},
+      left_obturator = #{leftObturator,jdbcType=VARCHAR},
+      right_obturator = #{rightObturator,jdbcType=VARCHAR},
+      aorta_abdominalis = #{aortaAbdominalis,jdbcType=VARCHAR},
+      greater_omentum_tissue = #{greaterOmentumTissue,jdbcType=VARCHAR},
+      appendix = #{appendix,jdbcType=VARCHAR},
+      cervicitis = #{cervicitis,jdbcType=VARCHAR},
+      uterus = #{uterus,jdbcType=VARCHAR},
+      uterine_muscle_gland = #{uterineMuscleGland,jdbcType=VARCHAR},
+      uterus_two = #{uterusTwo,jdbcType=VARCHAR},
+      ovary_one = #{ovaryOne,jdbcType=VARCHAR},
+      fallopian_tubes = #{fallopianTubes,jdbcType=VARCHAR},
+      contact_address = #{contactAddress,jdbcType=LONGVARCHAR},
+      er = #{er,jdbcType=LONGVARCHAR},
+      pr = #{pr,jdbcType=LONGVARCHAR},
+      p53 = #{p53,jdbcType=LONGVARCHAR},
+      ki67 = #{ki67,jdbcType=LONGVARCHAR},
+      wt1 = #{wt1,jdbcType=LONGVARCHAR},
+      ck = #{ck,jdbcType=LONGVARCHAR},
+      ck7 = #{ck7,jdbcType=LONGVARCHAR},
+      ck20 = #{ck20,jdbcType=LONGVARCHAR},
+      else_str = #{elseStr,jdbcType=LONGVARCHAR},
+      whether_difficult_case = #{whetherDifficultCase,jdbcType=LONGVARCHAR},
+      survival = #{survival,jdbcType=LONGVARCHAR},
+      death_time = #{deathTime,jdbcType=LONGVARCHAR},
+      death_cause = #{deathCause,jdbcType=LONGVARCHAR},
+      post_discharge_treatment = #{postDischargeTreatment,jdbcType=LONGVARCHAR},
+      postoperative_chemotherapy = #{postoperativeChemotherapy,jdbcType=LONGVARCHAR},
+      chemotherapy_regimen = #{chemotherapyRegimen,jdbcType=LONGVARCHAR},
+      fir_chemotherapy = #{firChemotherapy,jdbcType=LONGVARCHAR},
+      two_chemotherapy = #{twoChemotherapy,jdbcType=LONGVARCHAR},
+      thr_chemotherapy = #{thrChemotherapy,jdbcType=LONGVARCHAR},
+      fou_chemotherapy = #{fouChemotherapy,jdbcType=LONGVARCHAR},
+      fiv_chemotherapy = #{fivChemotherapy,jdbcType=LONGVARCHAR},
+      six_chemotherapy = #{sixChemotherapy,jdbcType=LONGVARCHAR},
+      sev_chemotherapy = #{sevChemotherapy,jdbcType=LONGVARCHAR},
+      eig_chemotherapy = #{eigChemotherapy,jdbcType=LONGVARCHAR},
+      ele_chemotherapy = #{eleChemotherapy,jdbcType=LONGVARCHAR},
+      other = #{other,jdbcType=LONGVARCHAR},
+      radiation_therapy = #{radiationTherapy,jdbcType=LONGVARCHAR},
+      pregnancies = #{pregnancies,jdbcType=LONGVARCHAR},
+      regular_review = #{regularReview,jdbcType=LONGVARCHAR},
+      recurrence = #{recurrence,jdbcType=LONGVARCHAR},
+      relapse_time = #{relapseTime,jdbcType=LONGVARCHAR},
+      recurrence_parts = #{recurrenceParts,jdbcType=LONGVARCHAR},
+      recurrence_diagnosis = #{recurrenceDiagnosis,jdbcType=LONGVARCHAR},
+      admission_number_recurrence = #{admissionNumberRecurrence,jdbcType=LONGVARCHAR},
+      recurrence_treatment = #{recurrenceTreatment,jdbcType=LONGVARCHAR},
+      fir_chemotherapy_recurrence = #{firChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+      two_chemotherapy_recurrence = #{twoChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+      thr_chemotherapy_recurrence = #{thrChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+      fou_chemotherapy_recurrence = #{fouChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+      fiv_chemotherapy_recurrence = #{fivChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+      six_chemotherapy_recurrence = #{sixChemotherapyRecurrence,jdbcType=LONGVARCHAR},
+      others = #{others,jdbcType=LONGVARCHAR},
+      transfer = #{transfer,jdbcType=LONGVARCHAR},
+      secondary_tumorigenesis = #{secondaryTumorigenesis,jdbcType=LONGVARCHAR},
+      second_tumor_therapy = #{secondTumorTherapy,jdbcType=LONGVARCHAR},
+      elses = #{elses,jdbcType=LONGVARCHAR},
+      followup_time = #{followupTime,jdbcType=LONGVARCHAR},
+      results_follow = #{resultsFollow,jdbcType=LONGVARCHAR},
+      relapse = #{relapse,jdbcType=LONGVARCHAR},
+      death_time_two = #{deathTimeTwo,jdbcType=LONGVARCHAR},
+      death_cause_two = #{deathCauseTwo,jdbcType=LONGVARCHAR},
+      followup_number = #{followupNumber,jdbcType=LONGVARCHAR},
+      followup_time_two = #{followupTimeTwo,jdbcType=LONGVARCHAR},
+      followup_ending = #{followupEnding,jdbcType=LONGVARCHAR},
+      followup_time_thr = #{followupTimeThr,jdbcType=LONGVARCHAR},
+      last_followup_time = #{lastFollowupTime,jdbcType=LONGVARCHAR},
+      death_time_thr = #{deathTimeThr,jdbcType=LONGVARCHAR},
+      death_cause_thr = #{deathCauseThr,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <update id="updateByPrimaryKey" parameterType="com.fancy.cancer.api.po.OvarianCancer">
+    update ovarian_cancer
+    set number = #{number,jdbcType=VARCHAR},
+      admission_number = #{admissionNumber,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      age = #{age,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      home_phone = #{homePhone,jdbcType=VARCHAR},
+      contact = #{contact,jdbcType=VARCHAR},
+      contact_number = #{contactNumber,jdbcType=VARCHAR},
+      contact_id = #{contactId,jdbcType=VARCHAR},
+      contacts_two = #{contactsTwo,jdbcType=VARCHAR},
+      contact_two = #{contactTwo,jdbcType=VARCHAR},
+      contact_id_two = #{contactIdTwo,jdbcType=VARCHAR},
+      admission_time = #{admissionTime,jdbcType=VARCHAR},
+      discharge_date = #{dischargeDate,jdbcType=VARCHAR},
+      hospitalization_days = #{hospitalizationDays,jdbcType=VARCHAR},
+      hospital_departments = #{hospitalDepartments,jdbcType=VARCHAR},
+      hospital_ward = #{hospitalWard,jdbcType=VARCHAR},
+      first_marriage = #{firstMarriage,jdbcType=VARCHAR},
+      wedding_time = #{weddingTime,jdbcType=VARCHAR},
+      production_number = #{productionNumber,jdbcType=VARCHAR},
+      abortion_number = #{abortionNumber,jdbcType=VARCHAR},
+      brady = #{brady,jdbcType=VARCHAR},
+      menarche_age = #{menarcheAge,jdbcType=VARCHAR},
+      menstrual_period = #{menstrualPeriod,jdbcType=VARCHAR},
+      cycle = #{cycle,jdbcType=VARCHAR},
+      menopausal_age = #{menopausalAge,jdbcType=VARCHAR},
+      lmp = #{lmp,jdbcType=VARCHAR},
+      spouse_phimosis = #{spousePhimosis,jdbcType=VARCHAR},
+      venereal_disease = #{venerealDisease,jdbcType=VARCHAR},
+      total_cost = #{totalCost,jdbcType=VARCHAR},
+      principle_action = #{principleAction,jdbcType=VARCHAR},
+      family_history = #{familyHistory,jdbcType=VARCHAR},
+      relatives = #{relatives,jdbcType=VARCHAR},
+      hospital_diagnosis = #{hospitalDiagnosis,jdbcType=VARCHAR},
+      touch_blood = #{touchBlood,jdbcType=VARCHAR},
+      vaginal_bleeding = #{vaginalBleeding,jdbcType=VARCHAR},
+      local_pain = #{localPain,jdbcType=VARCHAR},
+      systemic_symptom = #{systemicSymptom,jdbcType=VARCHAR},
+      urine = #{urine,jdbcType=VARCHAR},
+      preoperative_chemotherapy_regimen = #{preoperativeChemotherapyRegimen,jdbcType=VARCHAR},
+      surgery_date = #{surgeryDate,jdbcType=VARCHAR},
+      operation_method = #{operationMethod,jdbcType=VARCHAR},
+      surgeon = #{surgeon,jdbcType=VARCHAR},
+      operation_frequency = #{operationFrequency,jdbcType=VARCHAR},
+      tumor_area = #{tumorArea,jdbcType=VARCHAR},
+      ascites = #{ascites,jdbcType=VARCHAR},
+      character_str = #{characterStr,jdbcType=VARCHAR},
+      quantity = #{quantity,jdbcType=VARCHAR},
+      cancer_free = #{cancerFree,jdbcType=VARCHAR},
+      intraoperative_chemotherapy_regimen = #{intraoperativeChemotherapyRegimen,jdbcType=VARCHAR},
+      residual_lesions = #{residualLesions,jdbcType=VARCHAR},
+      preoperative_ca125 = #{preoperativeCa125,jdbcType=VARCHAR},
+      ca125 = #{ca125,jdbcType=VARCHAR},
+      installment = #{installment,jdbcType=VARCHAR},
+      adjuvant_therapy = #{adjuvantTherapy,jdbcType=VARCHAR},
+      pathologic_types = #{pathologicTypes,jdbcType=VARCHAR},
+      pathology = #{pathology,jdbcType=VARCHAR},
+      pathological_diagnosis = #{pathologicalDiagnosis,jdbcType=VARCHAR},
+      complications = #{complications,jdbcType=VARCHAR},
+      ovary = #{ovary,jdbcType=VARCHAR},
+      differentiation = #{differentiation,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      muscularis_infringement = #{muscularisInfringement,jdbcType=VARCHAR},
+      within_vascular = #{withinVascular,jdbcType=VARCHAR},
+      vaginal_stump = #{vaginalStump,jdbcType=VARCHAR},
+      parasymal_tissue = #{parasymalTissue,jdbcType=VARCHAR},
+      left_pelvic = #{leftPelvic,jdbcType=VARCHAR},
+      right_pelvic = #{rightPelvic,jdbcType=VARCHAR},
+      left_iliac = #{leftIliac,jdbcType=VARCHAR},
+      right_iliac = #{rightIliac,jdbcType=VARCHAR},
+      left_blood_vessels = #{leftBloodVessels,jdbcType=VARCHAR},
+      right_blood_vessels = #{rightBloodVessels,jdbcType=VARCHAR},
+      left_obturator = #{leftObturator,jdbcType=VARCHAR},
+      right_obturator = #{rightObturator,jdbcType=VARCHAR},
+      aorta_abdominalis = #{aortaAbdominalis,jdbcType=VARCHAR},
+      greater_omentum_tissue = #{greaterOmentumTissue,jdbcType=VARCHAR},
+      appendix = #{appendix,jdbcType=VARCHAR},
+      cervicitis = #{cervicitis,jdbcType=VARCHAR},
+      uterus = #{uterus,jdbcType=VARCHAR},
+      uterine_muscle_gland = #{uterineMuscleGland,jdbcType=VARCHAR},
+      uterus_two = #{uterusTwo,jdbcType=VARCHAR},
+      ovary_one = #{ovaryOne,jdbcType=VARCHAR},
+      fallopian_tubes = #{fallopianTubes,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByCondition" parameterType="com.fancy.cancer.api.po.OvarianCancer" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from ovarian_cancer
+        <where>
+            <if test="admissionNumber!=null and admissionNumber!=''">
+                admission_number like CONCAT(#{admissionNumber,jdbcType=VARCHAR}, '%')
+            </if>
+            <if test="name!=null and name!=''">
+                and name like CONCAT(#{name,jdbcType=VARCHAR}, '%')
+            </if>
+            <if test="pathology!=null and pathology!=''">
+                and pathology like CONCAT(#{pathology,jdbcType=VARCHAR}, '%')
+            </if>
+        </where>
+        order by id desc
+    </select>
+    <select id="selectAll" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from ovarian_cancer
+    </select>
+</mapper>

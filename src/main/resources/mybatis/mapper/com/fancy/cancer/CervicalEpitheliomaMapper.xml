@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fancy.cancer.impl.mapper.CervicalEpitheliomaMapper">
+  <resultMap id="BaseResultMap" type="com.fancy.cancer.api.po.CervicalEpithelioma">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="admission_number" jdbcType="VARCHAR" property="admissionNumber" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="id_number" jdbcType="VARCHAR" property="idNumber" />
+    <result column="home_phone" jdbcType="VARCHAR" property="homePhone" />
+    <result column="contact_address" jdbcType="VARCHAR" property="contactAddress" />
+    <result column="contact" jdbcType="VARCHAR" property="contact" />
+    <result column="contact_number" jdbcType="VARCHAR" property="contactNumber" />
+    <result column="contact_two" jdbcType="VARCHAR" property="contactTwo" />
+    <result column="contact_number_two" jdbcType="VARCHAR" property="contactNumberTwo" />
+    <result column="hospital_departments" jdbcType="VARCHAR" property="hospitalDepartments" />
+    <result column="admission_time" jdbcType="VARCHAR" property="admissionTime" />
+    <result column="discharge_date" jdbcType="VARCHAR" property="dischargeDate" />
+    <result column="hospitalization_days" jdbcType="VARCHAR" property="hospitalizationDays" />
+    <result column="principle_action" jdbcType="VARCHAR" property="principleAction" />
+    <result column="menarche_age" jdbcType="VARCHAR" property="menarcheAge" />
+    <result column="cycle" jdbcType="VARCHAR" property="cycle" />
+    <result column="menstrual_period" jdbcType="VARCHAR" property="menstrualPeriod" />
+    <result column="first_marriage" jdbcType="VARCHAR" property="firstMarriage" />
+    <result column="production_number" jdbcType="VARCHAR" property="productionNumber" />
+    <result column="abortion_number" jdbcType="VARCHAR" property="abortionNumber" />
+    <result column="surgery_date" jdbcType="VARCHAR" property="surgeryDate" />
+    <result column="operation_method" jdbcType="VARCHAR" property="operationMethod" />
+    <result column="surgeon" jdbcType="VARCHAR" property="surgeon" />
+    <result column="pathology" jdbcType="VARCHAR" property="pathology" />
+    <result column="cin" jdbcType="VARCHAR" property="cin" />
+    <result column="tired_gland" jdbcType="VARCHAR" property="tiredGland" />
+    <result column="else_str" jdbcType="VARCHAR" property="elseStr" />
+    <result column="followup_time" jdbcType="VARCHAR" property="followupTime" />
+    <result column="whether_death" jdbcType="VARCHAR" property="whetherDeath" />
+    <result column="death_time" jdbcType="VARCHAR" property="deathTime" />
+    <result column="death_cause" jdbcType="VARCHAR" property="deathCause" />
+    <result column="regular_review" jdbcType="VARCHAR" property="regularReview" />
+    <result column="recurrence" jdbcType="VARCHAR" property="recurrence" />
+    <result column="relapse_time" jdbcType="VARCHAR" property="relapseTime" />
+    <result column="recurrence_parts" jdbcType="VARCHAR" property="recurrenceParts" />
+    <result column="recurrence_treatment" jdbcType="VARCHAR" property="recurrenceTreatment" />
+    <result column="transfer" jdbcType="VARCHAR" property="transfer" />
+    <result column="other" jdbcType="VARCHAR" property="other" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, number, admission_number, name, id_number, home_phone, contact_address, contact, 
+    contact_number, contact_two, contact_number_two, hospital_departments, admission_time, 
+    discharge_date, hospitalization_days, principle_action, menarche_age, cycle, menstrual_period, 
+    first_marriage, production_number, abortion_number, surgery_date, operation_method, 
+    surgeon, pathology, cin, tired_gland, else_str, followup_time, whether_death, death_time, 
+    death_cause, regular_review, recurrence, relapse_time, recurrence_parts, recurrence_treatment, 
+    transfer, other
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cervical_epithelioma
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cervical_epithelioma
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fancy.cancer.api.po.CervicalEpithelioma">
+    insert into cervical_epithelioma (id, number, admission_number, 
+      name, id_number, home_phone, 
+      contact_address, contact, contact_number, 
+      contact_two, contact_number_two, hospital_departments, 
+      admission_time, discharge_date, hospitalization_days, 
+      principle_action, menarche_age, cycle, 
+      menstrual_period, first_marriage, production_number, 
+      abortion_number, surgery_date, operation_method, 
+      surgeon, pathology, cin, 
+      tired_gland, else_str, followup_time, 
+      whether_death, death_time, death_cause, 
+      regular_review, recurrence, relapse_time, 
+      recurrence_parts, recurrence_treatment, transfer, 
+      other)
+    values (#{id,jdbcType=INTEGER}, #{number,jdbcType=VARCHAR}, #{admissionNumber,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{idNumber,jdbcType=VARCHAR}, #{homePhone,jdbcType=VARCHAR}, 
+      #{contactAddress,jdbcType=VARCHAR}, #{contact,jdbcType=VARCHAR}, #{contactNumber,jdbcType=VARCHAR}, 
+      #{contactTwo,jdbcType=VARCHAR}, #{contactNumberTwo,jdbcType=VARCHAR}, #{hospitalDepartments,jdbcType=VARCHAR}, 
+      #{admissionTime,jdbcType=VARCHAR}, #{dischargeDate,jdbcType=VARCHAR}, #{hospitalizationDays,jdbcType=VARCHAR}, 
+      #{principleAction,jdbcType=VARCHAR}, #{menarcheAge,jdbcType=VARCHAR}, #{cycle,jdbcType=VARCHAR}, 
+      #{menstrualPeriod,jdbcType=VARCHAR}, #{firstMarriage,jdbcType=VARCHAR}, #{productionNumber,jdbcType=VARCHAR}, 
+      #{abortionNumber,jdbcType=VARCHAR}, #{surgeryDate,jdbcType=VARCHAR}, #{operationMethod,jdbcType=VARCHAR}, 
+      #{surgeon,jdbcType=VARCHAR}, #{pathology,jdbcType=VARCHAR}, #{cin,jdbcType=VARCHAR}, 
+      #{tiredGland,jdbcType=VARCHAR}, #{elseStr,jdbcType=VARCHAR}, #{followupTime,jdbcType=VARCHAR}, 
+      #{whetherDeath,jdbcType=VARCHAR}, #{deathTime,jdbcType=VARCHAR}, #{deathCause,jdbcType=VARCHAR}, 
+      #{regularReview,jdbcType=VARCHAR}, #{recurrence,jdbcType=VARCHAR}, #{relapseTime,jdbcType=VARCHAR}, 
+      #{recurrenceParts,jdbcType=VARCHAR}, #{recurrenceTreatment,jdbcType=VARCHAR}, #{transfer,jdbcType=VARCHAR}, 
+      #{other,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fancy.cancer.api.po.CervicalEpithelioma">
+    insert into cervical_epithelioma
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="admissionNumber != null">
+        admission_number,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="idNumber != null">
+        id_number,
+      </if>
+      <if test="homePhone != null">
+        home_phone,
+      </if>
+      <if test="contactAddress != null">
+        contact_address,
+      </if>
+      <if test="contact != null">
+        contact,
+      </if>
+      <if test="contactNumber != null">
+        contact_number,
+      </if>
+      <if test="contactTwo != null">
+        contact_two,
+      </if>
+      <if test="contactNumberTwo != null">
+        contact_number_two,
+      </if>
+      <if test="hospitalDepartments != null">
+        hospital_departments,
+      </if>
+      <if test="admissionTime != null">
+        admission_time,
+      </if>
+      <if test="dischargeDate != null">
+        discharge_date,
+      </if>
+      <if test="hospitalizationDays != null">
+        hospitalization_days,
+      </if>
+      <if test="principleAction != null">
+        principle_action,
+      </if>
+      <if test="menarcheAge != null">
+        menarche_age,
+      </if>
+      <if test="cycle != null">
+        cycle,
+      </if>
+      <if test="menstrualPeriod != null">
+        menstrual_period,
+      </if>
+      <if test="firstMarriage != null">
+        first_marriage,
+      </if>
+      <if test="productionNumber != null">
+        production_number,
+      </if>
+      <if test="abortionNumber != null">
+        abortion_number,
+      </if>
+      <if test="surgeryDate != null">
+        surgery_date,
+      </if>
+      <if test="operationMethod != null">
+        operation_method,
+      </if>
+      <if test="surgeon != null">
+        surgeon,
+      </if>
+      <if test="pathology != null">
+        pathology,
+      </if>
+      <if test="cin != null">
+        cin,
+      </if>
+      <if test="tiredGland != null">
+        tired_gland,
+      </if>
+      <if test="elseStr != null">
+        else_str,
+      </if>
+      <if test="followupTime != null">
+        followup_time,
+      </if>
+      <if test="whetherDeath != null">
+        whether_death,
+      </if>
+      <if test="deathTime != null">
+        death_time,
+      </if>
+      <if test="deathCause != null">
+        death_cause,
+      </if>
+      <if test="regularReview != null">
+        regular_review,
+      </if>
+      <if test="recurrence != null">
+        recurrence,
+      </if>
+      <if test="relapseTime != null">
+        relapse_time,
+      </if>
+      <if test="recurrenceParts != null">
+        recurrence_parts,
+      </if>
+      <if test="recurrenceTreatment != null">
+        recurrence_treatment,
+      </if>
+      <if test="transfer != null">
+        transfer,
+      </if>
+      <if test="other != null">
+        other,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionNumber != null">
+        #{admissionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="homePhone != null">
+        #{homePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddress != null">
+        #{contactAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null">
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNumber != null">
+        #{contactNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTwo != null">
+        #{contactTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNumberTwo != null">
+        #{contactNumberTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalDepartments != null">
+        #{hospitalDepartments,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionTime != null">
+        #{admissionTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dischargeDate != null">
+        #{dischargeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalizationDays != null">
+        #{hospitalizationDays,jdbcType=VARCHAR},
+      </if>
+      <if test="principleAction != null">
+        #{principleAction,jdbcType=VARCHAR},
+      </if>
+      <if test="menarcheAge != null">
+        #{menarcheAge,jdbcType=VARCHAR},
+      </if>
+      <if test="cycle != null">
+        #{cycle,jdbcType=VARCHAR},
+      </if>
+      <if test="menstrualPeriod != null">
+        #{menstrualPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="firstMarriage != null">
+        #{firstMarriage,jdbcType=VARCHAR},
+      </if>
+      <if test="productionNumber != null">
+        #{productionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="abortionNumber != null">
+        #{abortionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="surgeryDate != null">
+        #{surgeryDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operationMethod != null">
+        #{operationMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="surgeon != null">
+        #{surgeon,jdbcType=VARCHAR},
+      </if>
+      <if test="pathology != null">
+        #{pathology,jdbcType=VARCHAR},
+      </if>
+      <if test="cin != null">
+        #{cin,jdbcType=VARCHAR},
+      </if>
+      <if test="tiredGland != null">
+        #{tiredGland,jdbcType=VARCHAR},
+      </if>
+      <if test="elseStr != null">
+        #{elseStr,jdbcType=VARCHAR},
+      </if>
+      <if test="followupTime != null">
+        #{followupTime,jdbcType=VARCHAR},
+      </if>
+      <if test="whetherDeath != null">
+        #{whetherDeath,jdbcType=VARCHAR},
+      </if>
+      <if test="deathTime != null">
+        #{deathTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deathCause != null">
+        #{deathCause,jdbcType=VARCHAR},
+      </if>
+      <if test="regularReview != null">
+        #{regularReview,jdbcType=VARCHAR},
+      </if>
+      <if test="recurrence != null">
+        #{recurrence,jdbcType=VARCHAR},
+      </if>
+      <if test="relapseTime != null">
+        #{relapseTime,jdbcType=VARCHAR},
+      </if>
+      <if test="recurrenceParts != null">
+        #{recurrenceParts,jdbcType=VARCHAR},
+      </if>
+      <if test="recurrenceTreatment != null">
+        #{recurrenceTreatment,jdbcType=VARCHAR},
+      </if>
+      <if test="transfer != null">
+        #{transfer,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        #{other,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fancy.cancer.api.po.CervicalEpithelioma">
+    update cervical_epithelioma
+    <set>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionNumber != null">
+        admission_number = #{admissionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null">
+        id_number = #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="homePhone != null">
+        home_phone = #{homePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddress != null">
+        contact_address = #{contactAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null">
+        contact = #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNumber != null">
+        contact_number = #{contactNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTwo != null">
+        contact_two = #{contactTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNumberTwo != null">
+        contact_number_two = #{contactNumberTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalDepartments != null">
+        hospital_departments = #{hospitalDepartments,jdbcType=VARCHAR},
+      </if>
+      <if test="admissionTime != null">
+        admission_time = #{admissionTime,jdbcType=VARCHAR},
+      </if>
+      <if test="dischargeDate != null">
+        discharge_date = #{dischargeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="hospitalizationDays != null">
+        hospitalization_days = #{hospitalizationDays,jdbcType=VARCHAR},
+      </if>
+      <if test="principleAction != null">
+        principle_action = #{principleAction,jdbcType=VARCHAR},
+      </if>
+      <if test="menarcheAge != null">
+        menarche_age = #{menarcheAge,jdbcType=VARCHAR},
+      </if>
+      <if test="cycle != null">
+        cycle = #{cycle,jdbcType=VARCHAR},
+      </if>
+      <if test="menstrualPeriod != null">
+        menstrual_period = #{menstrualPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="firstMarriage != null">
+        first_marriage = #{firstMarriage,jdbcType=VARCHAR},
+      </if>
+      <if test="productionNumber != null">
+        production_number = #{productionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="abortionNumber != null">
+        abortion_number = #{abortionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="surgeryDate != null">
+        surgery_date = #{surgeryDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operationMethod != null">
+        operation_method = #{operationMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="surgeon != null">
+        surgeon = #{surgeon,jdbcType=VARCHAR},
+      </if>
+      <if test="pathology != null">
+        pathology = #{pathology,jdbcType=VARCHAR},
+      </if>
+      <if test="cin != null">
+        cin = #{cin,jdbcType=VARCHAR},
+      </if>
+      <if test="tiredGland != null">
+        tired_gland = #{tiredGland,jdbcType=VARCHAR},
+      </if>
+      <if test="elseStr != null">
+        else_str = #{elseStr,jdbcType=VARCHAR},
+      </if>
+      <if test="followupTime != null">
+        followup_time = #{followupTime,jdbcType=VARCHAR},
+      </if>
+      <if test="whetherDeath != null">
+        whether_death = #{whetherDeath,jdbcType=VARCHAR},
+      </if>
+      <if test="deathTime != null">
+        death_time = #{deathTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deathCause != null">
+        death_cause = #{deathCause,jdbcType=VARCHAR},
+      </if>
+      <if test="regularReview != null">
+        regular_review = #{regularReview,jdbcType=VARCHAR},
+      </if>
+      <if test="recurrence != null">
+        recurrence = #{recurrence,jdbcType=VARCHAR},
+      </if>
+      <if test="relapseTime != null">
+        relapse_time = #{relapseTime,jdbcType=VARCHAR},
+      </if>
+      <if test="recurrenceParts != null">
+        recurrence_parts = #{recurrenceParts,jdbcType=VARCHAR},
+      </if>
+      <if test="recurrenceTreatment != null">
+        recurrence_treatment = #{recurrenceTreatment,jdbcType=VARCHAR},
+      </if>
+      <if test="transfer != null">
+        transfer = #{transfer,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        other = #{other,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fancy.cancer.api.po.CervicalEpithelioma">
+    update cervical_epithelioma
+    set number = #{number,jdbcType=VARCHAR},
+      admission_number = #{admissionNumber,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      home_phone = #{homePhone,jdbcType=VARCHAR},
+      contact_address = #{contactAddress,jdbcType=VARCHAR},
+      contact = #{contact,jdbcType=VARCHAR},
+      contact_number = #{contactNumber,jdbcType=VARCHAR},
+      contact_two = #{contactTwo,jdbcType=VARCHAR},
+      contact_number_two = #{contactNumberTwo,jdbcType=VARCHAR},
+      hospital_departments = #{hospitalDepartments,jdbcType=VARCHAR},
+      admission_time = #{admissionTime,jdbcType=VARCHAR},
+      discharge_date = #{dischargeDate,jdbcType=VARCHAR},
+      hospitalization_days = #{hospitalizationDays,jdbcType=VARCHAR},
+      principle_action = #{principleAction,jdbcType=VARCHAR},
+      menarche_age = #{menarcheAge,jdbcType=VARCHAR},
+      cycle = #{cycle,jdbcType=VARCHAR},
+      menstrual_period = #{menstrualPeriod,jdbcType=VARCHAR},
+      first_marriage = #{firstMarriage,jdbcType=VARCHAR},
+      production_number = #{productionNumber,jdbcType=VARCHAR},
+      abortion_number = #{abortionNumber,jdbcType=VARCHAR},
+      surgery_date = #{surgeryDate,jdbcType=VARCHAR},
+      operation_method = #{operationMethod,jdbcType=VARCHAR},
+      surgeon = #{surgeon,jdbcType=VARCHAR},
+      pathology = #{pathology,jdbcType=VARCHAR},
+      cin = #{cin,jdbcType=VARCHAR},
+      tired_gland = #{tiredGland,jdbcType=VARCHAR},
+      else_str = #{elseStr,jdbcType=VARCHAR},
+      followup_time = #{followupTime,jdbcType=VARCHAR},
+      whether_death = #{whetherDeath,jdbcType=VARCHAR},
+      death_time = #{deathTime,jdbcType=VARCHAR},
+      death_cause = #{deathCause,jdbcType=VARCHAR},
+      regular_review = #{regularReview,jdbcType=VARCHAR},
+      recurrence = #{recurrence,jdbcType=VARCHAR},
+      relapse_time = #{relapseTime,jdbcType=VARCHAR},
+      recurrence_parts = #{recurrenceParts,jdbcType=VARCHAR},
+      recurrence_treatment = #{recurrenceTreatment,jdbcType=VARCHAR},
+      transfer = #{transfer,jdbcType=VARCHAR},
+      other = #{other,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByCondition" parameterType="com.fancy.cancer.api.po.CervicalEpithelioma" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cervical_epithelioma
+    <where>
+      <if test="admissionNumber!=null and admissionNumber!=''">
+        admission_number  like CONCAT(#{admissionNumber,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="name!=null and name!=''">
+        and name  like  CONCAT(#{name,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="pathology!=null and pathology!=''">
+        and pathology  like  CONCAT(#{pathology,jdbcType=VARCHAR}, '%')
+      </if>
+    </where>
+    order by id desc
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from cervical_epithelioma
+    </select>
+</mapper>
